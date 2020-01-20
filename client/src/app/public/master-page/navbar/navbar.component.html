@@ -1,0 +1,19 @@
+<nav>
+    
+    <div class="nav-wrapper " style="background-color:#F2F2F2  ;">
+      <a routerLink="/home" class="brand-logo text-color" id="logo">JS MARINEROS</a>
+      <a href="#" data-target="mobile-Hotel" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+          <li *ngIf="!userLogged" ><a class="text-color" routerLink="/mision">Mission</a></li>
+          <li *ngIf="!userLogged" ><a class="text-color" routerLink="/vision">View</a></li>
+        <strong  *ngIf="userLogged">{{userName}}</strong>
+        <li *ngIf="!userLogged"><a class="text-color" routerLink="security/Login">Login</a></li>
+        <li *ngIf="userLogged"><a class="text-color" routerLink="security/Logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-Hotel">
+    <li *ngIf="!userLogged"><a class="text-color" routerLink="security/Login">Login</a></li>
+    <li *ngIf="userLogged"><a class="text-color" routerLink="security/Logout">Logout</a></li>
+  </ul>
