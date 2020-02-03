@@ -10,16 +10,16 @@
                     <label for="username" data-error="wrong" data-success="right">Username</label>
                     <div class="warning-validation"
                         *ngIf="fg.username.errors && (fg.username.dirty || fg.username.touched)">
-                        <strong *ngIf="fg.username.errors.required">
+                        <strong *ngIf="fg.username.errors.required"class= "alert-color">
                             Username is required!<br />
                         </strong>
-                        <strong *ngIf="fg.username.errors.minlength">
+                        <strong *ngIf="fg.username.errors.minlength"class= "alert-color">
                             Username must be at least 5 characters long!<br />
                         </strong>
-                        <strong *ngIf="fg.username.errors.maxlength">
+                        <strong *ngIf="fg.username.errors.maxlength"class= "alert-color">
                             Username must be up to 40 characters long!<br />
                         </strong>
-                        <strong *ngIf="fg.username.errors.email">
+                        <strong *ngIf="fg.username.errors.email"class= "alert-color">
                             Username must be an email!
                         </strong>
                     </div>
@@ -32,13 +32,13 @@
                     <label for="password">Password</label>
                     <div class="warning-validation"
                         *ngIf="fg.password.errors && (fg.password.dirty || fg.password.touched)">
-                        <strong *ngIf="fg.password.errors.required">
+                        <strong *ngIf="fg.password.errors.required" class= "alert-color">
                             Password is required!<br />
                         </strong>
-                        <strong *ngIf="fg.password.errors.minlength">
-                            Password must be at least 10 characters long!<br />
+                        <strong *ngIf="fg.password.errors.minlength" class= "alert-color">
+                            Password must be at least 5 characters long!<br />
                         </strong>
-                        <strong *ngIf="fg.password.errors.maxlength">
+                        <strong *ngIf="fg.password.errors.maxlength"class= "alert-color">
                             Password must be up to 15 characters long!
                         </strong>
                     </div>
@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <button [disabled]="fg.username.errors || fg.password.errors"
-                        class="btn waves-effect waves-light blue col s12" type="submit">Login
+                        class="btn waves-effect waves-light col s12 button-color " type="submit">Login
                     </button>
                 </div>
             </div>

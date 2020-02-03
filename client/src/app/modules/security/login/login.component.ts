@@ -13,9 +13,7 @@ export class LoginComponent implements OnInit {
   fgValidation: FormGroup;
 
   constructor(private fb: FormBuilder, private secService: SecurityService,
-              private router:Router) {
-
-   }
+              private router:Router) { }
 
   ngOnInit() {
     this.fgValidationBuilder();
@@ -24,7 +22,7 @@ export class LoginComponent implements OnInit {
   fgValidationBuilder(){
     this.fgValidation= this.fb.group({
       username:['',[Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8),Validators.maxLength(15)]]
+      password:['',[Validators.required, Validators.minLength(5),Validators.maxLength(15)]]
     });
   }
 
@@ -34,11 +32,16 @@ export class LoginComponent implements OnInit {
     }else{
     let u= this.fg.username.value;
     let p= this.fg.password.value;
-    let user = this.secService.loginUser(u,p);
-    if(user != null){
-      console.log(user);
-      this.router.navigate(['/home']);
-    }
+    let user = null;
+    this.secService.loginUser(u,p).subscribe(data =>{
+      if(data != null){
+        console.log(data.email);
+        this.secService.saveLoginUser(data);
+        this.router.navigate(['/home']);
+      }else{
+        alert("algo salio mal con el login");
+      }
+    });
     }
   }
 

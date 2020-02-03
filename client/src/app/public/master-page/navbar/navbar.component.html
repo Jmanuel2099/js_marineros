@@ -6,14 +6,19 @@
       <ul class="right hide-on-med-and-down">
           <li *ngIf="!userLogged" ><a class="text-color" routerLink="/mision">Mission</a></li>
           <li *ngIf="!userLogged" ><a class="text-color" routerLink="/vision">View</a></li>
+          <li *ngIf="!userLogged"><a class="text-color" routerLink="property/PropertyHome">Properties</a></li>
         <strong  *ngIf="userLogged">{{userName}}</strong>
         <li *ngIf="!userLogged"><a class="text-color" routerLink="security/Login">Login</a></li>
         <li *ngIf="userLogged"><a class="text-color" routerLink="security/Logout">Logout</a></li>
+        
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-Hotel">
+    <li *ngIf="!userLogged" ><a class="text-color" routerLink="/mision">Mission</a></li>
+    <li *ngIf="!userLogged" ><a class="text-color" routerLink="/vision">View</a></li>
+    <li *ngIf="!userLogged"><a class="text-color" routerLink="property/PropertyHome">Properties</a></li>
     <li *ngIf="!userLogged"><a class="text-color" routerLink="security/Login">Login</a></li>
     <li *ngIf="userLogged"><a class="text-color" routerLink="security/Logout">Logout</a></li>
   </ul>

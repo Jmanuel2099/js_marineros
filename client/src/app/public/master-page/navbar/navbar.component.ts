@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SecurityService } from 'src/app/services/security.service';
+import { Subscription } from 'rxjs';
+import { UserModel } from 'src/app/modeles/userModel';
 
 @Component({
   selector: 'app-navbar',
@@ -7,19 +9,23 @@ import { SecurityService } from 'src/app/services/security.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  subs: Subscription;
+  userInfo: UserModel;
+  userLogged:boolean = false;
 
-  userLogged: boolean;
+  
 
-  constructor(private secService:SecurityService) {
-
-   }
+  constructor(private secService:SecurityService) { }
 
   ngOnInit() {
     this.verifyUserSesion();
   }
   
   verifyUserSesion(){
-    this.userLogged= this.secService.isUsserLoged();
+    this.subs = this.secService.getUserInfo().subscribe(user => {
+      this.userInfo = user;
+      this.userLogged= user.isLogged;
+    });
   }
 
 }

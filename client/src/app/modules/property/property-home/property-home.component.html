@@ -1,0 +1,36 @@
+<div class="container">
+  <h3 class="tittle-style">On sale</h3>
+  <div class="row s12">
+      <div *ngFor="let p of propertyList" class="col s12 m7">
+        <div *ngIf="p.VorA==0" class="card">
+          <div class="card-image">
+            <img src="{{p.image}}">
+            <span class="card-title">{{p.value}}</span>
+          </div>
+          <div class="card-content">
+            <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
+            <p class= "text-style">{{p.address}}</p>
+            <p class= "text-style">{{p.contact}}</p>
+            <a href="{{p.video}}">{{p.video}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 class="tittle-style">For rent</h3>
+    <div class="row s12">
+      <div *ngFor="let p of propertyList" class="col s12 m7">
+        <div *ngIf="p.VorA==1" class="card">
+          <div class="card-image">
+            <img src="{{p.image}}">
+            <span class="card-title">{{p.value}}</span>
+          </div>
+          <div class="card-content">
+            <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
+            <p class= "text-style">{{p.address}}</p>
+            <p class= "text-style">{{p.contact}}</p>
+            <a href="{{p.video}}">{{p.video}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>    

@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path:'security',
     loadChildren: './modules/security/security.module#SecurityModule'
+  },
+  {
+    path:'property',
+    loadChildren: './modules/property/property.module#PropertyModule'
   }
 ];
 

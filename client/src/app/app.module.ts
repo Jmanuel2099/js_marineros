@@ -10,6 +10,7 @@ import { VisionComponent } from './public/vision/vision.component';
 import { MisionComponent } from './public/mision/mision.component';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

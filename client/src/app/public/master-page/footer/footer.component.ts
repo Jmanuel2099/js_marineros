@@ -8,26 +8,29 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FooterComponent implements OnInit {
 
-fgValidation: FormGroup;
+//fgValidation: FormGroup;
+fgV : FormGroup;
 
   constructor(private fb: FormBuilder) { 
 
   }
   
   ngOnInit() {
-    //this.fgvalidationBuilder();
+    this.fgvalidationBuilder();
   }
   
 
-  /*fgvalidationBuilder(){
-    this.fgValidation = this.fb.group({
-      email: ['aaa',[Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.email]],
-      message: ['bbb',[Validators.required,Validators.minLength(3),Validators.maxLength(700)]]
+  fgvalidationBuilder(){
+    this.fgV = this.fb.group({
+      //email: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(50),Validators.email]],
+      first: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(30)]],
+      last: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(30)]],
+      message: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(40)]]
     });
   }
 
   sendMessage(){
-    if(this.fgValidation.invalid){
+    if(this.fgV.invalid){
       alert("ERROR")
     }else{
       alert("SEND MESSAGE")
@@ -35,7 +38,7 @@ fgValidation: FormGroup;
   }
 
   get fg(){
-    return this.fgValidation.controls;
+    return this.fgV.controls;
   }
-  */
+  
 }

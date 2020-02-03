@@ -12,3 +12,9 @@
       -o-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
  }
+ .button-color{
+     background: #B2B0B0 
+ }
+ .alert-color{
+     color: #D31717 ;
+ }
