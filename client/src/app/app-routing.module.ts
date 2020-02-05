@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { VisionComponent } from './public/vision/vision.component';
 import { MisionComponent } from './public/mision/mision.component';
+import { UnAuthenticationRequiredGuard } from './helpers/guards/un-authentication-required.guard';
 
 
 const routes: Routes = [
@@ -17,11 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'vision',
-    component: VisionComponent
+    component: VisionComponent,
+    canActivate:[UnAuthenticationRequiredGuard]
   },
   {
     path: 'mision',
-    component: MisionComponent
+    component: MisionComponent,
+    canActivate:[UnAuthenticationRequiredGuard]
   },
   {
     path:'security',
@@ -29,7 +32,8 @@ const routes: Routes = [
   },
   {
     path:'property',
-    loadChildren: './modules/property/property.module#PropertyModule'
+    loadChildren: './modules/property/property.module#PropertyModule',
+    canActivate:[UnAuthenticationRequiredGuard]
   }
 ];
 

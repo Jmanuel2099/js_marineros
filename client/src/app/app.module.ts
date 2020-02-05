@@ -11,6 +11,8 @@ import { MisionComponent } from './public/mision/mision.component';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+//import { sha256, sha224 } from 'sha256';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     VisionComponent,
     MisionComponent,
-    HeroComponent
+    HeroComponent,
+    //sha256,sha224
   ],
   imports: [
     BrowserModule,

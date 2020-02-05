@@ -44,6 +44,9 @@
                     </div>
                 </div>
             </div>
+
+            <!--div class="g-recaptcha" data-sitekey="6LeOiNUUAAAAAEr3pUGAltL5l8Jeyzb2IMg-dU-6"></div-->
+
             <div class="row">
                 <div class="input-field col s12">
                     <button [disabled]="fg.username.errors || fg.password.errors"
@@ -53,7 +56,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s6 m6 l6">
-                    <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
+                    <li  ><a routerLink="/security/RecoverPassword">Forgot password!</a></li>
                 </div>
             </div>
         </form>

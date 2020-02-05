@@ -1,15 +1,12 @@
-.tittle-font{
+.style-tittle{
     font-family: 'Fredoka One', cursive;
-}
-.text-font{
-    font-family: 'M PLUS 1p', sans-serif;
-}
-.tittle-color{
     color: #6B6B6B; 
 }
-.text-color{
+.style-text{
+    font-family: 'M PLUS 1p', sans-serif;
     color: #908E8E ; 
 }
+
 .border-color{
     color: #676666;
 }
@@ -17,8 +14,9 @@
     margin-right: 25px;
 }
 #image{
-    width: 575px;
+    width:100%;
+    /* width: 575px;
     height: 287px;
     margin-right: 20px;
-    margin-left: 60px;
+    margin-left: 60px; */
 }

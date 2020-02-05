@@ -4,3 +4,7 @@
 .text-color{
     color: #9E9E9E
 }
+img{
+    width: 200px; height: 66px;
+    margin-left: 10px;
+}

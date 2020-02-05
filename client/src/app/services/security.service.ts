@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../modeles/userModel';
 import { BehaviorSubject } from 'rxjs';
+//import { userInfo } from 'os';
 
-const baseUrl:String="http://localhost:3000/api/Users/login?include=User";
+const baseUrl:String="http://localhost:3000/api/Users/";
 
 @Injectable({
   providedIn: 'root'
@@ -31,20 +32,10 @@ loginUser(user:string, pass:string):Observable<UserModel>{
 }
 
 saveLoginUser(user:UserModel){
-  /*
-    let tb_user = JSON.parse(localStorage.getItem("tb_users"));
-    let user = tb_user.find(u => u.email == username && u.password == pass);
-
-    if (user != undefined) {
-      user.isLogged = true;
-      this.userInfo.next(user);
-      localStorage.setItem("activeUser", JSON.stringify(user));
-    }
-    return user;
-  */
  user.isLogged=true;
  this.userInfo.next(user);
  localStorage.setItem("activeUser", JSON.stringify(user));
+ //console.log(user.email)
  
 }
 verifyUserInSession() {
@@ -52,6 +43,9 @@ verifyUserInSession() {
   if(session != undefined){
     this.userInfo.next(JSON.parse(session));
   }
+}
+isActiveSession(){
+  return this.userInfo.getValue().isLogged
 }
 logoutUser(){
   localStorage.removeItem("activeUser");
