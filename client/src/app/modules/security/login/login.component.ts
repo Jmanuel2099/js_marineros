@@ -37,21 +37,21 @@ export class LoginComponent implements OnInit {
     }else{
     let u= this.fg.username.value;
     let p= this.fg.password.value;
-    let pEncrypted= this.encryptPassword(p);
-    //console.log(pEncrypted.toString());
+    let pEncrypted= this.encryptPassword(p).toString();
+    console.log(pEncrypted);
     //console.log(p);
     let user = null;
-    this.secService.loginUser(u,p).subscribe(data =>{
+    this.secService.loginUser(u,pEncrypted).subscribe(data =>{
       if(data != null){
         //console.log(data);
-        this.secService.saveLoginUser(data);
+        this.secService.saveLoginUser(data); 
         this.router.navigate(['/home']);
       }else{
         alert("algo salio mal con el login");
       }
     });
     }
-  }
+  } 
 
   encryptPassword(pass:string) {   
     var hash=CryptoJS.SHA256(pass);

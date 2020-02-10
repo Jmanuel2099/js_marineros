@@ -38,5 +38,9 @@
   "property": {
     "dataSource": "db",
     "public": true
+  },
+  "usuario": {
+    "dataSource": "db",
+    "public": true
   }
 }

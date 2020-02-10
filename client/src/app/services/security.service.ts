@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../modeles/userModel';
 import { BehaviorSubject } from 'rxjs';
+import { LoginModel } from '../modeles/loginModel';
 //import { userInfo } from 'os';
 
 const baseUrl:String="http://localhost:3000/api/Users/";
@@ -13,12 +14,17 @@ const baseUrl:String="http://localhost:3000/api/Users/";
 export class SecurityService {
   
   userInfo= new BehaviorSubject<UserModel>(new UserModel());
+  loginInfo= new BehaviorSubject<LoginModel>(new LoginModel())
   usserLoged:boolean = false;
 
   constructor(private http:HttpClient) { 
     this.verifyUserInSession();
   }
  
+  // getLoginInfo(){
+  //   return this.loginInfo.asObservable();
+  // }
+
   getUserInfo() {
     return this.userInfo.asObservable();
   }

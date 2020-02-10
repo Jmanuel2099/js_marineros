@@ -5,18 +5,58 @@
 .style-text{
     font-family: 'M PLUS 1p', sans-serif;
     color: #908E8E ; 
+    margin-left: 5%;
+    margin-right: 45%;
 }
-
 .border-color{
     color: #676666;
 }
 #text{
-    margin-right: 25px;
+    margin-right: 30px;
+}
+.textva{
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #908E8E ; 
+}
+.imgva{
+    width: 95%;
+    margin-left: 5%;
 }
 #image{
-    width:100%;
-    /* width: 575px;
-    height: 287px;
-    margin-right: 20px;
-    margin-left: 60px; */
+    width:80%;
+    margin-left: 15%;
+    margin-right: 20%;
 }
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 27vh;
+    
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    color: white; /* ADD THIS LINE */
+    
+    /* Background styles */
+    /*background-image: url('http://www.casasensantander.com/wp-content/uploads/2018/01/casas-en-santander.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('http://www.casasensantander.com/wp-content/uploads/2018/01/casas-en-santander.jpg');*/
+    background-image: url('https://blog.apponto.com.br/wp-content/uploads/2019/01/comprar-apartamento-novo-ou-usado.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://blog.apponto.com.br/wp-content/uploads/2019/01/comprar-apartamento-novo-ou-usado.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .hero h1 {
+    /* Text styles */
+    font-size: 5em;
+    
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
