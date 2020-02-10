@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
     let pEncrypted= this.encryptPassword(p).toString();
     console.log(pEncrypted);
     //console.log(p);
-    let user = null;
     this.secService.loginUser(u,pEncrypted).subscribe(data =>{
       if(data != null){
         //console.log(data);
