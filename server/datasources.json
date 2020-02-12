@@ -9,5 +9,19 @@
     "user": "",
     "useNewUrlParser": true,
     "connector": "mongodb"
+  },
+  "Email": {
+    "name": "mail",
+    "connector": "mail",
+    "transports": [{
+      "type": "SMTP",
+      "host": "smtp.gmail.com",
+      "secure": true,
+      "port": 465,
+      "auth": {
+        "user": "jsmarinerosasociados@gmail.com",
+        "pass": "20deseptiembre"
+      }
+    }]
   }
 }

@@ -4,93 +4,6 @@
           All rights reserved. The total or partial reproduction of any of the content that appears here is prohibited, 
           as well as its translation into any language without written authorization.  </p>
       <div class="row ">
-            <form [formGroup]="fgV" (ngSubmit)="sendMessage()" class="col s6">
-                    <!--div><div class="row">
-                      <div class="input-field col s12">
-                        <input class="validate" formControlName="email" id="email" type="email" >
-                        <label for="email">Email</label>
-                        <div class="warning-validation"
-                            *ngIf="fg.email.errors && (fg.email.dirty || fg.email.touched)">
-                              <strong *ngIf="fg.email.errors.required">
-                                email is required!<br />
-                              </strong>
-                              <strong *ngIf="fg.email.errors.minlength">
-                                email must be at least 5 characters long!<br />
-                              </strong>
-                              <strong *ngIf="fg.email.errors.maxlength">
-                                email must be up to 40 characters long!<br />
-                              </strong>
-                              <strong *ngIf="fg.email.errors.email">
-                                email must be an email!
-                              </strong>
-                        </div>
-                      </div>
-                    </div><div!-->
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <input class="validate" formControlName="first" id="first" type="text" >
-                          <label for="first">First name</label>
-                          <div class="warning-validation "
-                              *ngIf="fg.first.errors && (fg.first.dirty || fg.first.touched)">
-                                <strong *ngIf="fg.first.errors.required" class="alert-color">
-                                  First name is required!<br />
-                                </strong>
-                                <strong *ngIf="fg.first.errors.minlength" class="alert-color">
-                                  First name must be at least 5 characters long!<br />
-                                </strong>
-                                <strong *ngIf="fg.first.errors.maxlength" class="alert-color">
-                                  First name must be up to 30 characters long!<br />
-                                </strong>
-                          </div>
-                        </div>
-                        <div class="input-field col s6">
-                          <input class="validate" formControlName="last" id="last" type="text" >
-                          <label for="last">Last name</label>
-                          <div class="warning-validation"
-                              *ngIf="fg.last.errors && (fg.last.dirty || fg.last.touched)">
-                                <strong *ngIf="fg.last.errors.required"class="alert-color">
-                                  Last name is required!<br />
-                                </strong>
-                                <strong *ngIf="fg.last.errors.minlength"class="alert-color">
-                                  Last name must be at least 5 characters long!<br />
-                                </strong>
-                                <strong *ngIf="fg.last.errors.maxlength"class="alert-color">
-                                  Last name must be up to 40 characters long!<br />
-                                </strong>
-                          </div>
-                        </div>
-                      </div>
-                        
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea formControlName="message" id="message" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Message</label>
-                            <div class="warning-validation"
-                            *ngIf="fg.message.errors && (fg.message.dirty || fg.message.touched)">
-                              <strong *ngIf="fg.message.errors.required" class="alert-color">
-                                message is required!<br />
-                              </strong>
-                              <strong *ngIf="fg.message.errors.minlength"class="alert-color">
-                                message must be at least 5 characters long!<br />
-                              </strong>
-                              <strong *ngIf="fg.message.errors.maxlength"class="alert-color">
-                                message must be up to 40 characters long!<br />
-                              </strong>
-                              <strong *ngIf="fg.message.errors.email"class="alert-color">
-                                message must be an email!
-                              </strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s4">
-                            <button [disabled]="fg.first.errors || fg.last.errors || fg.message.errors"
-                                class="btn waves-effect waves-light col s12" type="submit"
-                                style="background-color:#2CC86E ;">Send
-                            </button>
-                        </div>
-                    </div>
-                  </form>
         <div class="col l4 offset-l2 s12">
           <h5 class="text-color">Contact</h5>
           <div class="row">
@@ -109,7 +22,7 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container text-color">
+      <div class="container text-color center-align">
        MARINEROS PROPIEDAD RAÍZ Copyright ©2019
       </div>
     </div>

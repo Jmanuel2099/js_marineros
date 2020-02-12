@@ -60,3 +60,39 @@
     margin-top: 0;
     margin-bottom: 0.5em;
   }
+  .alert-color{
+    color: #D31717 ;
+}
+.hero2 {
+    /* Sizing */
+    width: 100vw;
+    height: 27vh;
+    
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    color: white; /* ADD THIS LINE */
+    
+    /* Background styles */
+    /*background-image: url('http://www.casasensantander.com/wp-content/uploads/2018/01/casas-en-santander.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('http://www.casasensantander.com/wp-content/uploads/2018/01/casas-en-santander.jpg');*/
+    background-image: url('https://m1.paperblog.com/i/163/1635602/dubai-destino-lujo-L-5f94Un.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://m1.paperblog.com/i/163/1635602/dubai-destino-lujo-L-5f94Un.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .hero2 h1 {
+    /* Text styles */
+    font-size: 5em;
+    
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }

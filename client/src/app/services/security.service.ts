@@ -57,4 +57,10 @@ logoutUser(){
   localStorage.removeItem("activeUser");
   this.userInfo.next(new UserModel());
 }
+
+getUser():Observable<UserModel[]>{
+  let Users = this.http.get<UserModel[]>(`{baseURL}`);
+  return Users;
+}
+
 }

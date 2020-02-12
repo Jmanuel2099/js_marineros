@@ -7,10 +7,7 @@ const routes: Routes = [
   {
     path:'PropertyHome',
     component: PropertyHomeComponent
-  },
-
-
-
+  }
 ];
 
 @NgModule({

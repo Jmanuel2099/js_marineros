@@ -42,5 +42,9 @@
   "usuario": {
     "dataSource": "db",
     "public": true
+  },
+  "Email": {
+    "dataSource": "Email",
+    "pubic":true
   }
 }

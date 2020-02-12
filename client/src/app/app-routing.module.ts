@@ -34,6 +34,11 @@ const routes: Routes = [
     path:'property',
     loadChildren: './modules/property/property.module#PropertyModule',
     canActivate:[UnAuthenticationRequiredGuard]
+  },
+  {
+    path:'user',
+    loadChildren: './modules/user/user.module#UserModule',
+    canActivate:[UnAuthenticationRequiredGuard]
   }
 ];
 

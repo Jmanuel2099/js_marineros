@@ -9,4 +9,4 @@ export class UserModel{
     address: String;
     cellphone: String;
     isLogged: boolean= false;
-} 
+}
