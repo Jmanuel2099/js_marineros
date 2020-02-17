@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       password:['',[Validators.required, Validators.minLength(5),Validators.maxLength(15)]]
     });
   }
+  
   get fg(){
     return this.fgValidation.controls;
   }
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
     let u= this.fg.username.value;
     let p= this.fg.password.value;
     let pEncrypted= this.encryptPassword(p).toString();
-    console.log(pEncrypted);
+    //console.log(pEncrypted);
     //console.log(p);
     this.secService.loginUser(u,pEncrypted).subscribe(data =>{
       if(data != null){
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
       }
     });
     }
-  } 
+  }  
 
   encryptPassword(pass:string) {   
     var hash=CryptoJS.SHA256(pass);

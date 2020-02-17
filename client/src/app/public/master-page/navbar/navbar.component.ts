@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SecurityService } from 'src/app/services/security.service';
 import { Subscription } from 'rxjs';
 import { UserModel } from 'src/app/modeles/userModel';
+import { LoginModel } from 'src/app/modeles/loginModel';
 
 @Component({
   selector: 'app-navbar',
@@ -10,33 +11,35 @@ import { UserModel } from 'src/app/modeles/userModel';
 })
 export class NavbarComponent implements OnInit {
   subs: Subscription;
-  userInfo: UserModel;
-  userName:String;
-  userLogged:boolean = false;
-  rol:number;
+  loginInfo: LoginModel;
+  userName: String;
+  userLogged: boolean = false;
+  rol: number;
 
-  
-
-  constructor(private secService:SecurityService) { }
+  constructor(private secService: SecurityService) { }
 
   ngOnInit() {
     this.verifyUserSesion();
   }
-  
-  verifyUserSesion(){
+
+  verifyUserSesion() {
     this.subs = this.secService.getUserInfo().subscribe(data => {
-      this.userInfo = data.user;
-      //console.log (data)
-     // console.log (this.userInfo)
-      this.updateInfo(data)
-      // this.rol=this.userInfo.rol;
-      //this.userLogged=data.isLogged; 
+      if (data.isLogged) {
+        this.loginInfo = data;
+        // console.log("Hola")
+        // console.log(this.loginInfo.user.rol)
+        // console.log("Mundo")
+        this.updateInfo(data)
+      }else{
+        this.userLogged = false;
+        this.loginInfo = undefined;
+      }
     });
   }
-  updateInfo(data){
-    this.userLogged =data.isLogged;
-    //this.rol= this.userInfo.rol;
-    //alert(this.userInfo.rol)
+  updateInfo(data) {
+    this.userLogged = data.isLogged;
+    this.rol= this.loginInfo.user.rol;
+    //alert(this.rol)
   }
 
 }

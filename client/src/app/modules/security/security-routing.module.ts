@@ -5,6 +5,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
 import { UnAuthenticationRequiredGuard } from 'src/app/helpers/guards/un-authentication-required.guard';
+import { RegisterComponent } from './register/register.component';
+
 
 
 const routes: Routes = [
@@ -21,6 +23,11 @@ const routes: Routes = [
   {
     path:'RecoverPassword',
     component: RecoverPasswordComponent
+  },
+  {
+    path:'register',
+    component: RegisterComponent,
+    canActivate:[UnAuthenticationRequiredGuard]
   },
   {
     path:'',

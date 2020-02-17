@@ -36,8 +36,8 @@ export class RecoverPasswordComponent implements OnInit {
     }
 
   }
-  get users(){
-    return this.secService.getUser().subscribe(u=> 
-      this.listUsers= u);
-  }
+//   get users(){
+//     return this.secService.getUser().subscribe(u=> 
+//       this.listUsers= u);
+//   }
 }

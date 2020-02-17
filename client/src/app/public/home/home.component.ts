@@ -18,20 +18,21 @@ export class HomeComponent implements OnInit {
 
   fgvalidationBuilder(){
     this.fgV = this.fb.group({
-      first: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(30)]],
-      last: ['',[Validators.required,Validators.minLength(5),Validators.maxLength(30)]],
+      first: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(30)]],
+      last: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(30)]],
       email:['',[Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email]],
       cell:['',[Validators.required, Validators.minLength(7),Validators.maxLength(10)]],
-      request:['',[Validators.required,Validators.minLength(1),Validators.maxLength(4)]],
+      request:['',[Validators.required,Validators.minLength(4),Validators.maxLength(5)]],
       message: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(200)]]
     });
   }
   sendMessage(){
+    let e= this.fg.email.value;
     let m= this.getMessage();
     if(this.fgV.invalid){
       alert("ERROR")
     }else{
-      this.userService.sendMessageHome(m);
+      this.userService.sendMessageHome(m,e);
     }
   }
   getMessage(){

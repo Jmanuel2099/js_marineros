@@ -10,9 +10,11 @@ export class UserService {
 
   constructor( private http: HttpClient) { }
 
-  sendMessageHome(message){
-    let subject="JSmarineros&asociados"
-    let emailAddres="jsmarinerosasociados@gmail.com";
-    let mess= this.http.get(`${this.baseURL}`)
+  sendMessageHome(message, email){
+    let subject="JSmarineros&asociados";
+    //let emailAddres="jsmarinerosasociados@gmail.com";
+    let mess= this.http.get(`${this.baseURL}sendEmail?message=pruebas2&subject=jsMarineros&emailAddresses=jr990920%40gmail.com`)
   }
+  
 }
+ 
