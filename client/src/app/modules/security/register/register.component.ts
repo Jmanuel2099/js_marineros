@@ -14,50 +14,54 @@ export class RegisterComponent implements OnInit {
 
   fgValidation: FormGroup;
   constructor(private fb: FormBuilder, private secService: SecurityService,
-    private router:Router) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.fgValidationBuilder();
   }
 
-  fgValidationBuilder(){
-    this.fgValidation= this.fb.group({
-      name:['',[Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
-      last:['',[Validators.required, Validators.minLength(4),Validators.maxLength(30)]],
-      email:['',[Validators.required, Validators.minLength(6),Validators.maxLength(40),Validators.email]],
-      birth:['',[Validators.required, Validators.minLength(9),Validators.maxLength(12)]],
-      address:['',[Validators.required, Validators.minLength(4),Validators.maxLength(30)]],
-      cell:['',[Validators.required, Validators.minLength(7),Validators.maxLength(10)]],
-      password:['',[Validators.required, Validators.minLength(5),Validators.maxLength(15)]],
-      username:['',[Validators.required, Validators.minLength(3), Validators.maxLength(30)]]
+  fgValidationBuilder() {
+    this.fgValidation = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
+      last: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
+      email: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(40), Validators.email]],
+      birth: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
+      address: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]],
+      cell: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]]
     });
   }
-  get fg(){
+  get fg() {
     return this.fgValidation.controls;
   }
-  RegisterEvent(){
-    if(this.fgValidation.invalid){
+
+  RegisterEvent() {
+    if (this.fgValidation.invalid) {
       alert("ERROR")
-      return undefined;
-    }else{
-      let rol:number=3;  
-      let firts= this.fg.name.value;
-      let last= this.fg.last.value;
-      let username= this.fg.username.value;
-      let mail= this.fg.email.value;
-      let pass= this.fg.password.value;
-      let pEncrypted= this.encryptPassword(pass).toString()
-      let birth= this.fg.birth.value;
-      let address= this.fg.address.value;
-      let cell= this.fg.cell.value;
-      this.secService.registerClient(rol,firts,last,username,mail,pEncrypted,birth,address,cell)
-      this.router.navigate(['/security/Login'])
+    } else {
+      let rol: number = 3;
+      let firts = this.fg.name.value;
+      let last = this.fg.last.value;
+      let username = this.fg.username.value;
+      let mail = this.fg.email.value;
+      let pass = this.fg.password.value;
+      let pEncrypted = this.encryptPassword(pass).toString()
+      let birth = this.fg.birth.value;
+      let address = this.fg.address.value;
+      let cell = this.fg.cell.value;
+      this.secService.registerClient(rol, firts, last, username, mail, pEncrypted, birth, address, cell).subscribe(data => {
+        console.log(data)
+        if (data != undefined)
+          this.router.navigate(['/security/Login'])
+      });
+
     }
   }
-  encryptPassword(pass:string) {   
-    var hash=CryptoJS.SHA256(pass);
+  encryptPassword(pass: string) {
+    var hash = CryptoJS.SHA256(pass);
     // alert(hash.toString()) ;
-    var encrypted= CryptoJS.SHA256(hash);
+    var encrypted = CryptoJS.SHA256(hash);
     // alert(encrypted)
     return encrypted;
   }

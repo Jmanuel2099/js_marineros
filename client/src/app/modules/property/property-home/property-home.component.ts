@@ -22,7 +22,7 @@ export class PropertyHomeComponent implements OnInit {
   }
 
   getProperties():void {
-    var property:PropertyModel;
+    let property:PropertyModel;
     this.propertyService.getProperty().subscribe(p=> {
       this.propertyList=p;
       

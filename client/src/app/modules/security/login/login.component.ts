@@ -43,9 +43,19 @@ export class LoginComponent implements OnInit {
     //console.log(p);
     this.secService.loginUser(u,pEncrypted).subscribe(data =>{
       if(data != null){
-        //console.log(data);
-        this.secService.saveLoginUser(data); 
-        this.router.navigate(['/home']);
+        console.log("data: ")
+        console.log(data);
+        this.secService.saveLoginUser(data);
+        if(data.user.rol==1){
+          this.router.navigate(['/home']);
+        }else if(data.user.rol==2){
+          this.router.navigate(['/home']);
+        }else if(data.user.rol==3){
+          this.router.navigate(['/home']);
+        }else{
+          alert("Rol Invalid!")
+        }
+        
       }else{
         alert("algo salio mal con el login");
       }

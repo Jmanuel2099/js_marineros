@@ -12,15 +12,21 @@
 
         <li *ngIf="userLogged && rol==1 "><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutAdim.png"></a> </li>
         <li *ngIf="userLogged && rol==2"><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutAsesor.gif"></a> </li>
-        <li *ngIf="userLogged && rol==3" ><a><img id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutClient.gif"></a> </li>
-        <!--li *ngIf="userLogged"><a class="text-color" routerLink="security/Logout">Logout</a></li-->
         
+         
+        <li *ngIf="userLogged && rol==3"><a class="style-text" routerLink="property/PropertyUser">Properties</a></li>
+        <li *ngIf="userLogged && rol==3"><a class="style-text" routerLink="/home">Request</a></li>
+        <li *ngIf="userLogged && rol==3" ><a><img id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutClient.gif"></a> </li>
       </ul>
     </div>
   </nav> 
 
   <ul class="sidenav" id="mobile-inmobiliaria">
+    <li *ngIf="!userLogged"><a class="style-text" routerLink="/home">Info</a></li>
+    <li *ngIf="!userLogged"><a class="style-text" routerLink="security/register">Register</a></li>
     <li *ngIf="!userLogged"><a class="style-text" routerLink="property/PropertyHome">Properties</a></li>
     <li *ngIf="!userLogged"><a class="style-text" routerLink="security/Login">Login</a></li>
     <li *ngIf="userLogged"><a class="style-text" routerLink="security/Logout">Logout</a></li>
+
+    
   </ul>
