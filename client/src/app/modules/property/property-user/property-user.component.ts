@@ -9,17 +9,18 @@ import { PropertyModel } from 'src/app/modeles/propertyModel';
 })
 export class PropertyUserComponent implements OnInit {
 
-  propertyList: PropertyModel[]= [];
+  List : PropertyModel[]= [];
 
   constructor(private propertyService:PropertyService) { }
 
   ngOnInit() {
+    this.getProperties()
   }
 
   getProperties():void {
     let property:PropertyModel;
     this.propertyService.getProperty().subscribe(p=> {
-      this.propertyList=p;
+      this.List=p;
       //console.log(p)
     });    
 }

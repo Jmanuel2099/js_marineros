@@ -1,18 +1,54 @@
-<div class="container">
-    <div class="row s12">
-        <div *ngFor="let p of propertyList" class="col s4 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{p.image}}">
-              <span class="card-title">{{p.value}}</span>
-            </div>
-            <div class="card-content">
-              <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
-              <p class="text-style">{{p.address}}</p>
-              <p class="text-style">{{p.contact}}</p>
-              <a href="{{p.video}}">{{p.video}}</a>
+
+<div class="row">
+  <div class="col s2">
+    <div id="card" class="z-depth-1 ">
+      <form action="#">
+        <p class="tittle-style">What kind of request are you looking for?</p>
+        <p>
+          <label>
+            <input class="with-gap" name="VorR" id="Sale" type="radio" value="0"/>
+            <span class="text-style">Sale</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="VorR" id="Rent" type="radio" value="1" />
+            <span class="text-style">Rent</span>
+          </label>
+        </p>
+        <p class="tittle-style">What are you looking for?</p>
+        <p>
+          <label>
+            <input class="with-gap" name="HorA" id="House" type="radio" value="0" />
+            <span class="text-style">Hose</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="HorA" id="Apartament" type="radio" value="1" />
+            <span class="text-style">Apartament</span>
+          </label>
+        </p>
+      </form>
+    </div>
+|</div>
+ 
+  <div class="col s10">
+      <div class="row s12">
+          <div *ngFor="let p of List" class="col s4 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src="{{p.image}}">
+                <span class="card-title">{{p.value}}</span>
+              </div>
+              <div class="card-content">
+                <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
+                <p class="text-style">{{p.address}}</p>
+                <p class="text-style">{{p.contact}}</p>
+                <a href="{{p.video}}">{{p.video}}</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+  </div>
 </div>

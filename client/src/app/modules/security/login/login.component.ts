@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/services/security.service';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-//import { sha256, sha224 } from 'sha256';
 
 @Component({
   selector: 'app-login',
@@ -39,25 +38,23 @@ export class LoginComponent implements OnInit {
     let u= this.fg.username.value;
     let p= this.fg.password.value;
     let pEncrypted= this.encryptPassword(p).toString();
-    //console.log(pEncrypted);
-    //console.log(p);
     this.secService.loginUser(u,pEncrypted).subscribe(data =>{
       if(data != null){
-        console.log("data: ")
-        console.log(data);
         this.secService.saveLoginUser(data);
         if(data.user.rol==1){
+          console.log("hello, i am admin")
           this.router.navigate(['/home']);
         }else if(data.user.rol==2){
+          console.log("hello, i am as")
           this.router.navigate(['/home']);
         }else if(data.user.rol==3){
-          this.router.navigate(['/home']);
+          console.log("hello, i am client")
+          this.router.navigate(['/property/PropertyUser']);
         }else{
           alert("Rol Invalid!")
         }
-        
       }else{
-        alert("algo salio mal con el login");
+        alert("ERROR in login");
       }
     });
     }
@@ -65,12 +62,7 @@ export class LoginComponent implements OnInit {
 
   encryptPassword(pass:string) {   
     var hash=CryptoJS.SHA256(pass);
-    // alert(hash.toString()) ;
     var encrypted= CryptoJS.SHA256(hash);
-    // alert(encrypted)
     return encrypted;
   }
-
- 
-
 }

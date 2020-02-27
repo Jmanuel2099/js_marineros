@@ -1,8 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
-import { VisionComponent } from './public/vision/vision.component';
-import { MisionComponent } from './public/mision/mision.component';
 import { UnAuthenticationRequiredGuard } from './helpers/guards/un-authentication-required.guard';
 
 
@@ -12,33 +10,22 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo:'/home'
-  },
-  {
-    path: 'vision',
-    component: VisionComponent,
-    canActivate:[UnAuthenticationRequiredGuard]
-  },
-  {
-    path: 'mision',
-    component: MisionComponent,
-    canActivate:[UnAuthenticationRequiredGuard]
-  },
-  {
     path:'security',
     loadChildren: './modules/security/security.module#SecurityModule'
   },
   {
     path:'property',
-    loadChildren: './modules/property/property.module#PropertyModule',
-    canActivate:[UnAuthenticationRequiredGuard]
+    loadChildren: './modules/property/property.module#PropertyModule'
   },
   {
     path:'user',
     loadChildren: './modules/user/user.module#UserModule',
     canActivate:[UnAuthenticationRequiredGuard]
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo:'/home'
   }
 ];
 

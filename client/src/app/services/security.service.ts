@@ -41,8 +41,8 @@ export class SecurityService {
     info.isLogged = true;
     this.loginInfo.next(info);
     localStorage.setItem("activeUser", JSON.stringify(info));
-    console.log("LoginInfo: " + this.loginInfo)
-    console.log(this.loginInfo)
+    //console.log("LoginInfo: " + this.loginInfo)
+    //console.log(this.loginInfo)
   }
   verifyUserInSession() {
     let session = localStorage.getItem("activeUser");
@@ -72,21 +72,12 @@ export class SecurityService {
       isLogged: false,
       password: pass
     };
-    console.log(body_post)
+    //console.log(body_post)
     return this.http.post<UserModel>(
       `${baseUrl}`,
       body_post,
       { headers: new HttpHeaders({ "content-type": "application/json" }) }
     );
   }
-
-  // getUserForId(userId){
-  //   let user = this.http.get<LoginModel>(`${baseUrl}${userId}`)
-  //   return user;
-  // }
-  // getUser():Observable<UserModel[]>{
-  //   let Users = this.http.get<UserModel[]>(`{baseURL}`);
-  //   return Users;
-  // }
 
 }
