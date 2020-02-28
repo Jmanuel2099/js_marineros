@@ -9,6 +9,7 @@ import { HomeComponent } from './public/home/home.component';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { HomePropertyComponent } from './public/home-property/home-property.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    HeroComponent
+    HeroComponent,
+    HomePropertyComponent
   ],
   imports: [
     BrowserModule,

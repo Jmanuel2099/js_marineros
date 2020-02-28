@@ -1,0 +1,68 @@
+<p></p>
+<div class="container">
+  <form [formGroup]="fgV" name="filter" (ngSubmit)="filterEvent()" >
+      <div class="row z-depth-1">
+        <div class="col s6">
+        <p class="tittle-style">What kind of request are you looking for?</p>
+        <p>
+          <label>
+            <input class="with-gap" formControlName="VorR" id="Sale" type="radio" value="0"/>
+            <span class="text-style">Sale</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" formControlName="VorR" id="Rent" type="radio" value="1" />
+            <span class="text-style">Rent</span>
+          </label>
+        </p>
+        <!--div class="warning-validation" *ngIf="fg.VorR.errors">
+        <strong *ngIf="fg.VorR.errors.required"class= "alert-color">
+            field is required!<br />
+        </strong>
+        </div-->
+      </div>
+      <div class="col s6">
+        <p class="tittle-style">What are you looking for?</p>
+        <p>
+          <label>
+            <input class="with-gap" formControlName="HorA" id="House" type="radio" value="0" />
+            <span class="text-style">Hose</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" formControlName="HorA" id="Apartament" type="radio" value="1" />
+            <span class="text-style">Apartament</span>
+          </label>
+        </p>
+        <!--div class="warning-validation" *ngIf="fg.HorA.errors">
+          <strong *ngIf="fg.HorA.errors.required"class= "alert-color">
+              field is required!<br />
+          </strong>
+        </div-->
+      </div>
+      <button class="btn waves-effect waves-light" type="submit"
+      [disabled]="fg.VorR.errors || fg.HorA.errors">Filter
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+
+  <div class="row s12">
+    <div *ngFor="let p of listFilter" class="col s4 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{p.image}}">
+          <span class="card-title">{{p.value}}</span>
+        </div>
+        <div class="card-content">
+          <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
+          <p class="text-style">{{p.address}}</p>
+          <p class="text-style">{{p.contact}}</p>
+          <a href="{{p.video}}">{{p.video}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         }else if(data.user.rol==3){
           console.log("hello, i am client")
-          this.router.navigate(['/property/PropertyUser']);
+          this.router.navigate(['/user/userHome']);
         }else{
           alert("Rol Invalid!")
         }

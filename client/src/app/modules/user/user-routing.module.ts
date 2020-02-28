@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { LoginComponent } from '../security/login/login.component';
+import { HomeUserComponent } from './home-user/home-user.component';
+import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
+import { PropertyUserComponent } from './property-user/property-user.component';
+
 
 
 const routes: Routes = [
   {
-    path:'createUser',
-    component: CreateUserComponent
+    path:'userHome',
+    component: HomeUserComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
-    path:'Login',
-    component: LoginComponent
+    path:'userProperty',
+    component: PropertyUserComponent
   }
 ];
 

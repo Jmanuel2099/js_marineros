@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { LoginComponent } from '../security/login/login.component';
+import { HomeUserComponent } from './home-user/home-user.component';
+import { PropertyUserComponent } from './property-user/property-user.component';
+
+
 
 
 @NgModule({
-  declarations: [CreateUserComponent, LoginComponent],
+  declarations: [HomeUserComponent, PropertyUserComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

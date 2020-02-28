@@ -2,12 +2,18 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { UnAuthenticationRequiredGuard } from './helpers/guards/un-authentication-required.guard';
+import { HomePropertyComponent } from './public/home-property/home-property.component';
 
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path:'homeProperty',
+    component: HomePropertyComponent,
+    canActivate: [UnAuthenticationRequiredGuard]
   },
   {
     path:'security',
@@ -19,8 +25,7 @@ const routes: Routes = [
   },
   {
     path:'user',
-    loadChildren: './modules/user/user.module#UserModule',
-    canActivate:[UnAuthenticationRequiredGuard]
+    loadChildren: './modules/user/user.module#UserModule'
   },
   {
     path: '',
