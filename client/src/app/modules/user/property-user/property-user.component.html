@@ -16,11 +16,6 @@
             <span class="text-style">Rent</span>
           </label>
         </p>
-        <!--div class="warning-validation" *ngIf="fg.VorR.errors">
-        <strong *ngIf="fg.VorR.errors.required"class= "alert-color">
-            field is required!<br />
-        </strong>
-        </div-->
       </div>
       <div class="col s6">
         <p class="tittle-style">What are you looking for?</p>
@@ -36,13 +31,8 @@
             <span class="text-style">Apartament</span>
           </label>
         </p>
-        <!--div class="warning-validation" *ngIf="fg.HorA.errors">
-          <strong *ngIf="fg.HorA.errors.required"class= "alert-color">
-              field is required!<br />
-          </strong>
-        </div-->
       </div>
-      <button class="btn waves-effect waves-light" type="submit"
+      <button class="btn waves-effect waves-light button1" type="submit"
       [disabled]="fg.VorR.errors || fg.HorA.errors">Filter
         <i class="material-icons right">send</i>
       </button>
@@ -62,6 +52,7 @@
           <p class="text-style">{{p.contact}}</p>
           <a href="{{p.video}}">{{p.video}}</a>
         </div>
+        <a class="waves-effect waves-light btn button2" (onclick)="rescuestEvent()">button</a>
       </div>
     </div>
   </div>

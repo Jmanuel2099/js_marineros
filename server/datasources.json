@@ -11,17 +11,19 @@
     "connector": "mongodb"
   },
   "Email": {
-    "name": "mail",
+    "name": "Email",
     "connector": "mail",
-    "transports": [{
-      "type": "SMTP",
-      "host": "smtp.gmail.com",
-      "secure": true,
-      "port": 465,
-      "auth": {
-        "user": "jsmarinerosasociados@gmail.com",
-        "pass": "20deseptiembre"
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "jsmarinerosasociados@gmail.com",
+          "pass": "20deseptiembre"
+        }
       }
-    }]
+    ]
   }
 }

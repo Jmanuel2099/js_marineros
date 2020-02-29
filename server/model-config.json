@@ -45,6 +45,10 @@
   },
   "Email": {
     "dataSource": "Email",
-    "pubic":true
+    "pubic": true
+  },
+  "recuest": {
+    "dataSource": "db",
+    "public": true
   }
 }

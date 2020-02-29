@@ -42,7 +42,7 @@ export class SecurityService {
     this.loginInfo.next(info);
     localStorage.setItem("activeUser", JSON.stringify(info));
     //console.log("LoginInfo: " + this.loginInfo)
-    //console.log(this.loginInfo)
+    console.log(this.loginInfo)
   }
   verifyUserInSession() {
     let session = localStorage.getItem("activeUser");

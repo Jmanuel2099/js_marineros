@@ -1,0 +1,34 @@
+{
+  "name": "recuest",
+  "plural": "recuests",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "property": {
+      "type": "object",
+      "required": true
+    },
+    "user": {
+      "type": "object",
+      "required": true
+    },
+    "adviser": {
+      "type": "object",
+      "required": true
+    },
+    "estado": {
+      "type": "boolean",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -31,7 +31,6 @@ export class PropertyUserComponent implements OnInit {
     });    
   }
 
-  
   fgValidationBuilder(){
     this.fgV= this.fb.group({
       VorR:['',[Validators.required]],
@@ -43,19 +42,18 @@ export class PropertyUserComponent implements OnInit {
     return this.fgV.controls;
   }
 
-filterEvent(){
-  let filter=[];
-  let saleOrRent= this.fg.VorR.value;
-  let houseOrApto= this.fg.HorA.value;
-  //console.log(saleOrRent+' and '+houseOrApto);
-  if (saleOrRent == null || houseOrApto == null) {
-    alert("You must fill in the fields");
-  }else{
-    this.listFilter= this.ListProperty.filter(x => x.VorA == saleOrRent && x.typeProperty == houseOrApto)
-  //filter=[saleOrRent,houseOrApto];
+  filterEvent(){
+    let saleOrRent= this.fg.VorR.value;
+    let houseOrApto= this.fg.HorA.value;
+    //console.log(saleOrRent+' and '+houseOrApto);
+    if (saleOrRent == null || houseOrApto == null) {
+      alert("You must fill in the fields");
+    }else{
+      this.listFilter= this.ListProperty.filter(x => x.VorA == saleOrRent && x.typeProperty == houseOrApto);
+    }
   }
-  //console.log(filter);
-  //return filter;
-}
 
+  rescuestEvent(){
+    
+  }
 }

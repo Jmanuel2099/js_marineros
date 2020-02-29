@@ -14,3 +14,13 @@
 img{
     width: 100px; height: 200px;
 }
+.button1{
+    margin-left: 3%;
+    margin-bottom: 1%;
+    background: #06679B;
+}
+.button2{
+    margin-left: 5%;
+    margin-bottom: 3%;
+    background: #06679B;
+}
