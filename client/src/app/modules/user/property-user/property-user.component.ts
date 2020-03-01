@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropertyModel } from 'src/app/modeles/propertyModel';
 import { PropertyService } from 'src/app/services/property.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-property-user',
@@ -14,7 +15,7 @@ export class PropertyUserComponent implements OnInit {
   ListProperty: PropertyModel[]= [];
   listFilter :PropertyModel[]= [];
 
-  constructor(private propertyService:PropertyService, private fb: FormBuilder) { }
+  constructor(private propertyService:PropertyService, private fb: FormBuilder, private secService: SecurityService) { }
 
   ngOnInit() {
     
@@ -54,6 +55,7 @@ export class PropertyUserComponent implements OnInit {
   }
 
   rescuestEvent(){
-    
+    let client = localStorage.getItem("activeUser");
+    let u= client
   }
 }

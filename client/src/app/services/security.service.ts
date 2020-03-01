@@ -44,7 +44,7 @@ export class SecurityService {
     //console.log("LoginInfo: " + this.loginInfo)
     console.log(this.loginInfo)
   }
-  verifyUserInSession() {
+  verifyUserInSession() { 
     let session = localStorage.getItem("activeUser");
     if (session != undefined) {
       this.loginInfo.next(JSON.parse(session));

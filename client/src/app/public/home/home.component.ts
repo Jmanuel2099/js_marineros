@@ -32,7 +32,8 @@ export class HomeComponent implements OnInit {
     if(this.fgV.invalid){
       alert("ERROR")
     }else{
-      this.userService.sendMessageHome(m,e);
+      alert("terminar el envio del mensaje");;
+      //this.userService.sendEmail(m,e);
     }
   }
   getMessage(){

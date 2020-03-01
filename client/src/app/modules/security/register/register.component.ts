@@ -4,6 +4,7 @@ import { UserModel } from 'src/app/modeles/userModel';
 import { SecurityService } from 'src/app/services/security.service';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   fgValidation: FormGroup;
   constructor(private fb: FormBuilder, private secService: SecurityService,
-    private router: Router) { }
+    private router: Router, private userservice: UserService) { }
 
   ngOnInit() {
     this.fgValidationBuilder();
@@ -51,12 +52,20 @@ export class RegisterComponent implements OnInit {
       let address = this.fg.address.value;
       let cell = this.fg.cell.value;
       this.secService.registerClient(rol, firts, last, username, mail, pEncrypted, birth, address, cell).subscribe(data => {
-        console.log(data)
+        //console.log(data)
         if (data != undefined)
           this.router.navigate(['/security/Login'])
       });
+      this.sendmessageConfimation(firts,last,mail);
 
     }
+  }
+
+  sendmessageConfimation(first:String, last:String, email:String){
+    let subj= "Account confirmaation JSmarineros&Asociados";
+    let m  = "Welcom "+first+" "+last+"!";
+    this.userservice.sendEmail(m, subj, email).subscribe(()=>{
+    });
   }
   encryptPassword(pass: string) {
     var hash = CryptoJS.SHA256(pass);
