@@ -8,23 +8,20 @@
   },
   "properties": {
     "property": {
-      "type": "object",
+      "type": "string",
       "required": true
     },
     "user": {
-      "type": "object",
+      "type": "string",
       "required": true
     },
     "adviser": {
-      "type": "object",
+      "type": "string",
       "required": true
     },
     "estado": {
-      "type": "boolean",
+      "type": "number",
       "required": true
-    },
-    "description": {
-      "type": "string"
     }
   },
   "validations": [],

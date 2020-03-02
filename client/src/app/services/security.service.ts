@@ -27,9 +27,14 @@ export class SecurityService {
   // }
 
   getUserInfo() {
-    return this.loginInfo.asObservable();
+    let info = this.loginInfo.asObservable();
+    //console.log(info);
+    return info 
   }
 
+  getInfo(){
+    return this.loginInfo.getValue();
+  }
   loginUser(user: string, pass: string): Observable<LoginModel> {
 
     return this.http.post<LoginModel>(`${baseUrl}/login?include=User`,
@@ -42,7 +47,8 @@ export class SecurityService {
     this.loginInfo.next(info);
     localStorage.setItem("activeUser", JSON.stringify(info));
     //console.log("LoginInfo: " + this.loginInfo)
-    console.log(this.loginInfo)
+    //console.log(this.loginInfo.value)
+    //return this.loginInfo.value
   }
   verifyUserInSession() { 
     let session = localStorage.getItem("activeUser");

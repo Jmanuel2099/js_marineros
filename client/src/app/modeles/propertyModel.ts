@@ -10,5 +10,5 @@ export class PropertyModel{
     contact:string;
     image:string;
     video:string;
-
+    id?:string;
 }

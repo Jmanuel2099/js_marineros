@@ -1,10 +1,10 @@
 import { UserModel } from './userModel';
 import { PropertyModel } from './propertyModel';
 
-export class Recuest{
+export class RequestModel{
     property: PropertyModel;
     user: UserModel;
     adviser: UserModel;
     state: boolean;
-    description: String;
+    id?: String;
 }
