@@ -3,7 +3,7 @@ export class UserModel{
     user?:UserModel;
     rol:number;
     firstName: String;
-    lastname: String;
+    lastName: String;
     email: String;
     password: String;
     birthDate: String;

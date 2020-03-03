@@ -25,4 +25,10 @@ export class RequestService {
      { headers: new HttpHeaders({ "content-type": "application/json" }) }
      );
   }
+
+  getRequest():Observable<RequestModel[]>{
+
+    let request= this.http.get<RequestModel[]>(`${base_url}`);
+    return request;
+  }
 }
