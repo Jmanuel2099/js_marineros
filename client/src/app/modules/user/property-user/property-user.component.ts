@@ -4,7 +4,10 @@ import { PropertyService } from 'src/app/services/property.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/services/security.service';
 import { RequestService } from 'src/app/services/request.service';
-import { not } from '@angular/compiler/src/output/output_ast';
+import { RequestModel } from 'src/app/modeles/requestModel';
+import { UserService } from 'src/app/services/user.service';
+
+declare  var openPlatformModalMessage: any;
 
 @Component({
   selector: 'app-property-user',
@@ -16,19 +19,19 @@ export class PropertyUserComponent implements OnInit {
   fgV: FormGroup;
   ListProperty: PropertyModel[]= [];
   listFilter :PropertyModel[]= [];
-  listRequestUser: PropertyModel[]= [];
+  listRequestUser: RequestModel[]= [];
   listTemp: PropertyModel[]= [];
 
   //recuest:Boolean=true;
 
   constructor(private propertyService:PropertyService, private fb: FormBuilder,
-     private secService: SecurityService, private requestService: RequestService) { }
+     private secService: SecurityService, private requestService: RequestService, private userService: UserService) { }
 
   ngOnInit() {
     
     this.fgValidationBuilder();
     this.getProperties();
-    this.getPropertiRequested();    
+    // this.getPropertiRequested();    
   }
 
   getProperties():void {
@@ -36,7 +39,6 @@ export class PropertyUserComponent implements OnInit {
     this.propertyService.getProperty().subscribe(p=> {
       this.ListProperty=p;
        //console.log(p)
-    
     });    
   }
 
@@ -54,7 +56,6 @@ export class PropertyUserComponent implements OnInit {
   filterEvent(){
     let saleOrRent= this.fg.VorR.value;
     let houseOrApto= this.fg.HorA.value;
-    
     if (saleOrRent == null || houseOrApto == null) {
       alert("You must fill in the fields");
     }else{
@@ -63,39 +64,54 @@ export class PropertyUserComponent implements OnInit {
     }
   }
 
-  getPropertiRequested(){
-    let user = this.secService.getInfo().userId;
-    let prequested = this.requestService.getRequest().subscribe(datas => {
-      for (let p of datas) {
-        if(p.user.toString() == user){// aqui me obtengo las propiedades que tiene solicitadas el usuaria que esta logeado
-          this.listRequestUser.push(p.property);
-          //console.log(this.listRequestUser)
-        }
-      }
-      
-      // for (let p of this.ListProperty) {
-      //   for (let r of this.listRequestUser) {
-        
-      //     if (p.id != r.toString()){
-      //       this.listTemp.push(p);
-      //       console.log(this.listTemp)
-      //     }
-      //   }
-      // }
-    });
-
-
-  }
-
   resquestEvent(id:String){
     let property= this.listFilter.find(p => p.id == id);
-    let idClient = this.secService.getInfo().userId;
-    let idProperty= property.id
-    let idAdvi= property.adviser;
-    this.requestService.requestProperty(idProperty,idClient,idAdvi).subscribe(r => {
-      alert("Request made =)");
+    let client = this.secService.getInfo().user;
+    let p ={
+      state: property.state,
+      departament:property.departament,
+      city:property.city,
+      address:property.address,
+      value:property.value,
+      typeProperty:property.typeProperty,
+      VorA:property.VorA,
+      adviser:property.adviser,
+      contact:property.contact,
+      image:property.image,
+      video:property.video,
+      id:property.id
+    }
+    let Advi= property.adviser;
+    this.requestService.requestProperty(p,client,Advi).subscribe(r => {
+      this.sendmessageConfimation(client.firstName,client.lastName,client.email,client.cellphone,
+                              Advi.firstName,Advi.lastName,Advi.email,
+                              property.id,property.departament,property.city,property.address,property.value)
+      openPlatformModalMessage("Message sent, the advisor is notified");
     });
   }
 
+  sendmessageConfimation(fUser:String, lUser:String, eUser:String, cUser:String,
+                         fAdvi:String, lAdvi:String, eadvi:String,
+                         idP:string, depP: String, cP:String, adP:string, vP:Number ){
+    let subj= "Request property JSmarineros&Asociados";
+    let m  = (`User ${fUser} ${lUser} Email ${eUser} cell ${cUser} property ${idP} Dept ${depP} city ${cP} Address ${adP} value ${vP}`)
+    // console.log(eadvi)
+    this.userService.sendEmail(m, subj, eadvi).subscribe(()=>{
+    });
+  }
+
+
+  // getPropertiRequested(){
+  //   let user = this.secService.getInfo().userId;
+  //   let prequested = this.requestService.getRequest().subscribe(datas => {
+  //     //console.log(datas)
+  //     for (let p of datas) {
+  //       if(p.user.toString() == user){// aqui me obtengo las propiedades que tiene solicitadas el usuaria que esta logeado
+  //         this.listRequestUser.push(p);
+  //         //console.log(this.listRequestUser)
+  //       }
+  //     }
+  //   });
+  // }
   
 }

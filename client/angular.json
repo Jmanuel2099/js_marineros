@@ -29,6 +29,7 @@
             ],
             "scripts": [
               "src/assets/js/initComponets.js",
+              "src/assets/js/actions.js",
               "node_modules/materialize-css/dist/js/materialize.js",
               "node_modules/crypto-js/crypto-js.js"
             ]

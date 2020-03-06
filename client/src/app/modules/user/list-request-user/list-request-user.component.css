@@ -1,0 +1,33 @@
+.tittle-style{
+    font-family: 'Anton', sans-serif;
+    color: #6B6B6B; 
+}
+.text-style{
+    font-family: 'M PLUS 1p', sans-serif;
+    color: #6B6B6B; 
+}
+.Cardimg{
+    width: 100px; height: 200px;
+}
+.button{
+    margin-left: 5%;
+    margin-bottom: 3%;
+    background: #EE1200;
+}
+
+.colorSend{
+    color: #6B6B6B;
+}
+.colorReview{
+    color:#06679B;
+}
+.colorAccepted{
+    color: #04CF6F;
+}
+.coloRejected{
+    color: #EE1200;
+}
+
+.color{
+    background: #06679B;
+}

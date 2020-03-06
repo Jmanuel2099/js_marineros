@@ -8,15 +8,15 @@
   },
   "properties": {
     "property": {
-      "type": "string",
+      "type": "object",
       "required": true
     },
     "user": {
-      "type": "string",
+      "type": "object",
       "required": true
     },
     "adviser": {
-      "type": "string",
+      "type": "object",
       "required": true
     },
     "estado": {

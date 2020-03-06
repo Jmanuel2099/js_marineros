@@ -5,6 +5,6 @@ export class RequestModel{
     property: PropertyModel;
     user: UserModel;
     adviser: UserModel;
-    state: boolean;
+    estado: Number;// 0 para enviado, 1 para revisado, 2 para aceptado y 3 para rechazado
     id?: String;
 }

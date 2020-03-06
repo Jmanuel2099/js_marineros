@@ -1,1 +1,44 @@
-<p>list-request-user works!</p>
+<div class="container z-depth-1">
+  <h3 class="tittle-style center align">REQUESTS</h3>
+<div class="row s12">
+    <div *ngFor="let p of listTemp" class="col s4 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{p.image}}" class="Cardimg" (click)="  openModalImage(p.image)">
+          <span class="card-title">{{p.value}}</span>
+        </div>
+        <div class="card-content">
+          <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
+          <p class="text-style">{{p.address}}</p>
+          <p class="text-style">{{p.contact}}</p>
+          <a href="{{p.video}}">{{p.video}}</a>
+          <p *ngIf="state == 0" class="colorSend ">SEND</p>
+          <p *ngIf="state == 1" class="colorReview">IN REVIEW</p>
+          <p *ngIf="state == 2" class="colorAccepted">ACCEPTED</p>
+          <p *ngIf="state == 3" class="coloRejected">REJECTED</p>
+        </div>
+        <a  class="waves-effect waves-light btn button" (click)="openModalConfimartion(p.id)">DELETE</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalConfirmation" class="modal">
+  <div class="modal-content">
+    <h4>Confirmation Window </h4>
+    <p> Do you confirm remove this elemnt</p>
+  </div>
+  <div class="modal-footer">
+      <a  class="modal-close waves-effect waves-light btn red">Cancel</a>&nbsp;
+      <a routerLink="/user/listRecuestUser" class="modal-close waves-effect waves-light btn green" (click)="deleteEvent()">Confirm</a>
+  </div>
+</div>
+
+<div id="modalImage" class="modal">
+  <div class="modal-content">
+    <img src= "{{image}}">
+  </div>
+  <div class="modal-footer">
+      <a  class="modal-close waves-effect waves-light btn color">Cancel</a>&nbsp;
+  </div>
+</div>
