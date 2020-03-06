@@ -1,0 +1,149 @@
+<div id="CreateProperty-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+        <h3 class="style-tittle center-align">Create Properties</h3>
+        <form (ngSubmit)="CreateEvent()" [formGroup]="fgValidation" class="login-form">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">location_city</i>
+                    <input class="validate" formControlName="depto" id="depto" type="text">
+                    <label for="depto" data-error="wrong" data-success="right">Departament</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.depto.errors && (fg.depto.dirty || fg.depto.touched)">
+                        <strong *ngIf="fg.depto.errors.required"class= "alert-color">
+                            Departament is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.depto.errors.minlength"class= "alert-color">
+                            Departament must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.depto.errors.maxlength"class= "alert-color">
+                            Departament must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" formControlName="city" id="city" type="text">
+                    <label for="city" data-error="wrong" data-success="right">City</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.city.errors && (fg.city.dirty || fg.city.touched)">
+                        <strong *ngIf="fg.city.errors.required"class= "alert-color">
+                            City is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.city.errors.minlength"class= "alert-color">
+                            City must be at least 4 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.city.errors.maxlength"class= "alert-color">
+                            City must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">location_on</i>
+                    <input class="validate" formControlName="address" id="address" type="text">
+                    <label for="address" data-error="wrong" data-success="right">Address</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.address.errors && (fg.address.dirty || fg.address.touched)">
+                        <strong *ngIf="fg.address.errors.required"class= "alert-color">
+                            Address is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.address.errors.minlength"class= "alert-color">
+                            Address must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.address.errors.maxlength"class= "alert-color">
+                            Address must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">monetization_on</i>
+                    <input class="validate" formControlName="value" id="value" type="text">
+                    <label for="value" data-error="wrong" data-success="right">Value</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.value.errors && (fg.value.dirty || fg.value.touched)">
+                        <strong *ngIf="fg.value.errors.required"class= "alert-color">
+                            Value is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.value.errors.minlength"class= "alert-color">
+                            Value must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.value.errors.maxlength"class= "alert-color">
+                            Value must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <p class="text-style">Type ofert</p>
+                <div class="col s6">
+                <p>
+                  <label>
+                    <input class="with-gap" formControlName="VorR" id="Sale" type="radio" value="0" checked/>
+                    <span class="text-style">Sale</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input class="with-gap" formControlName="VorR" id="Rent" type="radio" value="1" />
+                    <span class="text-style">Rent</span>
+                  </label>
+                </p>
+              </div>
+              <div class="col s6">
+                <p>
+                  <label>
+                    <input class="with-gap" formControlName="HorA" id="House" type="radio" value="0" checked/>
+                    <span class="text-style">Hose</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input class="with-gap" formControlName="HorA" id="Apartament" type="radio" value="1" />
+                    <span class="text-style">Apartament</span>
+                  </label>
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">image</i>
+                    <input class="validate" formControlName="HorA" id="img" type="text">
+                    <label for="img" data-error="wrong" data-success="right">Image</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.img.errors && (fg.img.dirty || fg.img.touched)">
+                        <strong *ngIf="fg.img.errors.required"class= "alert-color">
+                            Image is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.img.errors.minlength"class= "alert-color">
+                            Image must be at least 5 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">local_see</i>
+                    <input class="validate" formControlName="video" id="video" type="text">
+                    <label for="video" data-error="wrong" data-success="right">Video</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Optional</span>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <button [disabled]="fg.depto.errors ||fg.city.errors ||fg.address.errors || fg.value.errors||
+                    fg.VorR.errors ||fg.HorA.errors ||fg.img.errors "
+                        class="btn waves-effect waves-light col s12 button-color " type="submit">CREATE
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

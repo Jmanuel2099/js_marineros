@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: './modules/user/user.module#UserModule'
   },
   {
+    path:'adviser',
+    loadChildren: './modules/adviser/adviser.module#AdviserModule'
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo:'/home'

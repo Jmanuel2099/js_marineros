@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
           console.log("hello, i am admin")
           this.router.navigate(['/home']);
         }else if(data.user.rol==2){
-          console.log("hello, i am as")
-          this.router.navigate(['/home']);
+          console.log("hello, i am adviser")
+          this.router.navigate(['/adviser/homeAdviser']);
         }else if(data.user.rol==3){
           console.log("hello, i am client")
           this.router.navigate(['/user/userHome']);

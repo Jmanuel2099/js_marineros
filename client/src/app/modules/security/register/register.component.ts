@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 import { UserService } from 'src/app/services/user.service';
 
+declare var openPlatformModalMessage: any;
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -39,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
   RegisterEvent() {
     if (this.fgValidation.invalid) {
-      alert("ERROR")
+      openPlatformModalMessage("ERROR")
     } else {
       let rol: number = 3;
       let firts = this.fg.name.value;
@@ -55,6 +57,7 @@ export class RegisterComponent implements OnInit {
         //console.log(data)
         if (data != undefined)
           this.router.navigate(['/security/Login'])
+          openPlatformModalMessage("Register successful, a verification E-mail will be send");
       });
       this.sendmessageConfimation(firts,last,mail);
 
