@@ -15,6 +15,7 @@
 
         <!--a>options Adviser<a-->
         <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/createProperty">Create properties</a></li>
+        <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/showProperties">My properties</a></li>
         <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/homeAdviser">Request</a></li>
         <li *ngIf="userLogged && rol==2"><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutAsesor.gif"></a> </li>
          

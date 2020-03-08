@@ -1,14 +1,14 @@
-<div id="CreateProperty-page" class="row">
+<div id="EditProperty-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
         <h3 class="style-tittle center-align">Create Properties</h3>
-        <form (ngSubmit)="CreateEvent()" [formGroup]="fgV" class="login-form">
+        <form (ngSubmit)="editProperty()" [formGroup]="fgV" class="login-form">
             <div class="row">
             </div>
             <div class="row">
                 <div  class="input-field col s6">
                     <i class="material-icons prefix">location_city</i>
                     <input class="validate" formControlName="depto" id="depto" type="text">
-                    <label for="depto" data-error="wrong" data-success="right">Departament</label>
+                    <label for="depto" data-error="wrong" data-success="right" class = "active">Departament</label>
                     <div class="warning-validation"
                         *ngIf="fg.depto.errors && (fg.depto.dirty || fg.depto.touched)">
                         <strong *ngIf="fg.depto.errors.required"class= "alert-color">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="input-field col s6">
                     <input class="validate" formControlName="city" id="city" type="text">
-                    <label for="city" data-error="wrong" data-success="right">City</label>
+                    <label for="city" data-error="wrong" data-success="right" class = "active">City</label>
                     <div class="warning-validation"
                         *ngIf="fg.city.errors && (fg.city.dirty || fg.city.touched)">
                         <strong *ngIf="fg.city.errors.required"class= "alert-color">
@@ -43,7 +43,7 @@
                 <div class="input-field col s9">
                     <i class="material-icons prefix">location_on</i>
                     <input class="validate" formControlName="address" id="address" type="text">
-                    <label for="address" data-error="wrong" data-success="right">Address</label>
+                    <label for="address" data-error="wrong" data-success="right" class = "active">Address</label>
                     <div class="warning-validation"
                         *ngIf="fg.address.errors && (fg.address.dirty || fg.address.touched)">
                         <strong *ngIf="fg.address.errors.required"class= "alert-color">
@@ -62,7 +62,7 @@
                 <div class="input-field col s9">
                     <i class="material-icons prefix">monetization_on</i>
                     <input class="validate" formControlName="val" id="val" type="text">
-                    <label for="val" data-error="wrong" data-success="right">Value</label>
+                    <label for="val" data-error="wrong" data-success="right" class = "active">Value</label>
                     <div class="warning-validation"
                         *ngIf="fg.val.errors && (fg.val.dirty || fg.val.touched)">
                         <strong *ngIf="fg.val.errors.required"class= "alert-color">
@@ -112,7 +112,7 @@
                 <div class="input-field col s9">
                     <i class="material-icons prefix">image</i>
                     <input class="validate" formControlName="image" id="image" type="text">
-                    <label for="image" data-error="wrong" data-success="right">Image</label>
+                    <label for="image" data-error="wrong" data-success="right"class = "active">Image</label>
                      <div class="warning-validation"
                         *ngIf="fg.image.errors && (fg.image.dirty || fg.image.touched)">
                         <strong *ngIf="fg.image.errors.required"class= "alert-color">
@@ -125,7 +125,7 @@
                 <div class="input-field col s9">
                     <i class="material-icons prefix">local_see</i>
                     <input class="validate" formControlName="video" id="video" type="text">
-                    <label for="video" data-error="wrong" data-success="right">Video</label>
+                    <label for="video" data-error="wrong" data-success="right"class = "active">Video</label>
                     <span class="helper-text" data-error="wrong" data-success="right">Optional</span>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                 <div class="input-field col s12">
                     <button [disabled]="fg.depto.errors || fg.city.errors || fg.address.errors || fg.val.errors || fg.VorR.errors
                     || fg.HorA.errors || fg.image.errors || fg.video.errors"
-                        class="btn waves-effect waves-light col s12 button-color"  type="submit">CREATE
+                        class="btn waves-effect waves-light col s12 button-color"  type="submit">EDIT
                     </button>
                 </div>
             </div>

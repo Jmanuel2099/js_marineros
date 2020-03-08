@@ -7,6 +7,7 @@ import { PropertyService } from 'src/app/services/property.service';
 
 declare var openConfirmationModal: any;
 declare var openImageModal: any;
+declare var openPlatformModalMessage: any;
 
 @Component({
   selector: 'app-list-request-user',
@@ -40,21 +41,6 @@ export class ListRequestUserComponent implements OnInit {
     });
   }
 
-  deleteEvent(){
-    this.requestService.getRequest().subscribe(recuests => {
-      // console.log(recuests)
-      recuests.forEach(r => {
-        if(r.estado == 0){
-         //console.log(this.idProperty)
-          if (r.property.id == this.idProperty) {
-          //console.log(r.id)
-        this.requestService.deleteRequest(r.id).subscribe(()=> {}); 
-          }
-        }
-      }); 
-    });
-  }
-
   getState(){
     this.requestService.getRequest().subscribe(r => {
       //console.log(r)
@@ -66,9 +52,26 @@ export class ListRequestUserComponent implements OnInit {
   }
   
   openModalConfimartion(id:string){
-    //console.log(id)
+    console.log(id)
     this.idProperty= id
     openConfirmationModal()
+  }
+
+  deleteEvent(){
+    this.requestService.getRequest().subscribe(recuests => {
+      // console.log(recuests)
+      recuests.forEach(r => {
+        if(r.estado == 0){
+         //console.log(this.idProperty)
+          if (r.property.id == this.idProperty) {
+          //console.log(r.id)
+        this.requestService.deleteRequest(r.id).subscribe(()=> {}); 
+          }
+        }else{
+          openPlatformModalMessage("Request is in reviw")
+        }
+      }); 
+    });
   }
 
   openModalImage(i:String){

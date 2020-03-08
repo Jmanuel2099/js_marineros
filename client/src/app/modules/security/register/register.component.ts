@@ -60,7 +60,6 @@ export class RegisterComponent implements OnInit {
           openPlatformModalMessage("Register successful, a verification E-mail will be send");
       });
       this.sendmessageConfimation(firts,last,mail);
-
     }
   }
 
