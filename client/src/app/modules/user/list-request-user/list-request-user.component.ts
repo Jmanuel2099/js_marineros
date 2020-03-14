@@ -36,8 +36,7 @@ export class ListRequestUserComponent implements OnInit {
     let user = this.secService.getInfo().userId;
     let prequested = this.requestService.getRequest().subscribe(datas => {
       //console.log(datas)
-      this.listRequestUser = datas.filter(r => r.user.id == user)
-      this.listRequestUser.forEach(p => { this.listTemp.push(p.property) });
+      this.listRequestUser = datas.filter(r => r.user.id == user);
     });
   }
 

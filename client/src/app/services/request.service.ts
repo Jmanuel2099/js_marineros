@@ -33,9 +33,26 @@ export class RequestService {
     return request;
   }
 
+  getRequestById(id:String):Observable<RequestModel>{
+    return this.http.get<RequestModel>(`${base_url}/${id}`)
+  }
+
   deleteRequest(id:String):Observable<RequestModel>{
     let url =`${base_url}/${id}`
     //console.log(url);
     return this.http.delete<RequestModel>(url);
+  }
+
+  putRequest(p:PropertyModel,u:UserModel,a:UserModel,e:Number, m:String,id:String):Observable<RequestModel>{
+    let body_Put= {
+      property: p,
+      user: u,
+      adviser: a,
+      estado: e,
+      message: m,
+      id: id
+    }
+    return this.http.put<RequestModel>(base_url,
+       body_Put);
   }
 }

@@ -22,6 +22,9 @@
     "estado": {
       "type": "number",
       "required": true
+    },
+    "message": {
+      "type": "string"
     }
   },
   "validations": [],

@@ -22,7 +22,7 @@ import { HomePropertyComponent } from './public/home-property/home-property.comp
     HomePropertyComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

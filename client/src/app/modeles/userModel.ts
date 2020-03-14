@@ -9,5 +9,7 @@ export class UserModel{
     birthDate: String;
     address: String;
     cellphone: String;
+    numberRequest:Number;
+    
     isLogged: boolean= false;
 }

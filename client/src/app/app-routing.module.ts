@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: './modules/adviser/adviser.module#AdviserModule'
   },
   {
+    path:'admin',
+    loadChildren:'./modules/admin/admin.module#AdminModule'
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo:'/home'

@@ -4,6 +4,7 @@ import { HomeAdviserComponent } from './home-adviser/home-adviser.component';
 import { CreatePropertyComponent } from './create-property/create-property.component';
 import { ShowPropertiesComponent } from './show-properties/show-properties.component';
 import { EditorPropertyComponent } from './editor-property/editor-property.component';
+import { RequestAdviserComponent } from './request-adviser/request-adviser.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
 {
   path:'editProperty/:id',
   component: EditorPropertyComponent
+},
+{
+  path: 'recuestAdviser',
+  component: RequestAdviserComponent
 }
 
 ];

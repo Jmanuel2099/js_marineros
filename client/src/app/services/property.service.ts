@@ -30,7 +30,7 @@ export class PropertyService {
       state : state,
       departament: dept,
       city: city,
-      address: addr,
+      address: addr, 
       value: value,
       typeProperty: type,
       VorA: VorA,

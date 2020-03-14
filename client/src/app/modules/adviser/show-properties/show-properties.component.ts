@@ -34,7 +34,7 @@ export class ShowPropertiesComponent implements OnInit {
   }
 
   openConfirmationDelete(id:string){
-    console.log(id)
+    //console.log(id)
     this.idProperty= id
     openConfirmationModal()
   }

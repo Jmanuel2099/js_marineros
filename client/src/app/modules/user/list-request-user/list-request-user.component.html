@@ -1,23 +1,23 @@
-<div class="container z-depth-1">
-  <h3 class="tittle-style center align">REQUESTS</h3>
+<div class="container">
+  <h3 class="tittle-style">REQUESTS</h3>
 <div class="row s12">
-    <div *ngFor="let p of listTemp" class="col s4 m4">
+    <div *ngFor="let p of listRequestUser" class="col s4 m4">
       <div class="card">
         <div class="card-image">
-          <img src="{{p.image}}" class="Cardimg" (click)="  openModalImage(p.image)">
+          <img src="{{p.property.image}}" class="Cardimg" (click)="  openModalImage(p.property.image)">
           <span class="card-title">{{p.value}}</span>
         </div>
         <div class="card-content">
-          <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
-          <p class="text-style">{{p.address}}</p>
-          <p class="text-style">{{p.contact}}</p>
-          <a href="{{p.video}}">{{p.video}}</a>
-          <p *ngIf="state == 0" class="colorSend ">SEND</p>
-          <p *ngIf="state == 1" class="colorReview">IN REVIEW</p>
-          <p *ngIf="state == 2" class="colorAccepted">ACCEPTED</p>
-          <p *ngIf="state == 3" class="coloRejected">REJECTED</p>
+          <h5 class="text-style">{{p.property.departament}}-{{p.property.city}}</h5>
+          <p class="text-style">{{p.property.address}}</p>
+          <p class="text-style">{{p.property.contact}}</p>
+          <a href="{{p.property.video}}">{{p.property.video}}</a>
+          <p *ngIf="p.estado == 0" class="colorSend ">SEND</p>
+          <p *ngIf="p.estado == 1" class="colorReview">IN REVIEW</p>
+          <p *ngIf="p.estado == 2" class="colorAccepted">ACCEPTED</p>
+          <p *ngIf="p.estado == 3" class="coloRejected">REJECTED</p>
         </div>
-        <a  class="waves-effect waves-light btn button" (click)="openModalConfimartion(p.id)">DELETE</a>
+        <a *ngIf="p.estado == 0" class="waves-effect waves-light btn button" (click)="openModalConfimartion(p.property.id)">DELETE</a>
       </div>
     </div>
   </div>

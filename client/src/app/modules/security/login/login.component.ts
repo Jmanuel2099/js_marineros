@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
       if(data != null){
         this.secService.saveLoginUser(data);
         if(data.user.rol==1){
-          console.log("hello, i am admin")
-          this.router.navigate(['/home']);
+          console.log("hello, i am admin" + data.user.rol)
+          this.router.navigate(['/admin/homeAdmin']);
         }else if(data.user.rol==2){
           console.log("hello, i am adviser")
           this.router.navigate(['/adviser/homeAdviser']);

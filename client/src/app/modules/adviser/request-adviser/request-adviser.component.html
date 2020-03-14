@@ -1,0 +1,70 @@
+<div class="container">
+    <h3 class="tittle-style">REQUESTS</h3>
+  <div class="row s12">
+      <div *ngFor="let p of listRequestUser" class="col s4 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{p.property.image}}" class="Cardimg" (click)="  openModalImage(p.image)">
+            <span class="card-title">{{p.value}}</span>
+          </div>
+          <div class="card-content">
+            <h5 class="text-style">{{p.property.departament}}-{{p.property.city}}</h5>
+            <p class="text-style">{{p.property.address}}</p>
+            <p class="text-style">{{p.property.contact}}</p>
+            <a href="{{p.property.video}}">{{p.property.video}}</a>
+            <p *ngIf="p.estado == 1" class="colorReview">IN REVIEW</p>
+            <p *ngIf="p.estado == 2" class="colorAccepted">ACCEPTED</p>
+            <p *ngIf="p.estado == 3" class="coloRejected">REJECTED</p>
+          </div>
+          <a *ngIf="p.estado == 0" class="waves-effect waves-light btn button" (click)="putInStudy(p.id)">STUDY</a>
+          <a *ngIf="p.estado == 1" class="waves-effect waves-light btn green SaleOrNo" (click)="openConfirmationInAccepted(p.id)">ACCEPTED</a>
+          <a *ngIf="p.estado == 1" class="waves-effect waves-light btn red SaleOrNo" (click)="openModalComments(p.id)">REJECTED</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalMessageDejected" class="modal">
+    <div class="modal-content">
+        <div class="container">
+            <form [formGroup]="fgV" (ngSubmit)="putRejected()" class="col s6">          
+              <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">chat_bubble</i>
+                      <textarea formControlName="message" id="message" class="materialize-textarea"></textarea>
+                      <label for="textarea1">Message</label>
+                      <div class="warning-validation"
+                      *ngIf="fg.message.errors && (fg.message.dirty || fg.message.touched)">
+                        <strong *ngIf="fg.message.errors.required" class="alert-color">
+                          message is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.message.errors.minlength"class="alert-color">
+                          message must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.message.errors.maxlength"class="alert-color">
+                          message must be up to 200 characters long!<br />
+                        </strong>
+                      </div>
+                  </div>
+              </div>
+            <div class="modal-footer">
+                <a class="modal-close waves-effect waves-light btn red">CANCEL</a>&nbsp;
+                <button [disabled]="fg.message.errors"
+                    class="modal-close waves-effect waves-light btn green" type="submit">REJECTED
+                </button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  <div id="modalConfirmation" class="modal">
+    <div class="modal-content">
+      <h4>Confirmation Window </h4>
+      <p> Do you confirm sale this elemnt</p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-light btn red">NO</a>&nbsp;
+        <a class="modal-close waves-effect waves-light btn green" (click)="putAccepted()">YES</a>
+    </div>
+  </div>

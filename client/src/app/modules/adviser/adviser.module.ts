@@ -7,10 +7,11 @@ import { HomeAdviserComponent } from './home-adviser/home-adviser.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { EditorPropertyComponent } from './editor-property/editor-property.component';
 import { ShowPropertiesComponent } from './show-properties/show-properties.component';
+import { RequestAdviserComponent } from './request-adviser/request-adviser.component';
 
 
 @NgModule({
-  declarations: [CreatePropertyComponent, HomeAdviserComponent, EditorPropertyComponent, ShowPropertiesComponent],
+  declarations: [CreatePropertyComponent, HomeAdviserComponent, EditorPropertyComponent, ShowPropertiesComponent, RequestAdviserComponent],
   imports: [
     CommonModule,
     AdviserRoutingModule,

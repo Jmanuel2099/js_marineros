@@ -12,15 +12,9 @@
             <p class="text-style">{{p.address}}</p>
             <p class="text-style">{{p.contact}}</p>
             <a href="{{p.video}}">{{p.video}}</a>
-          </div>
-          <div class="row">
-            <div class=" col s6">
-                <a routerLink="/adviser/editProperty/{{p.id}}" class=" waves-effect waves-light btn orange col s12 button">EDIT</a>
-            </div>
-            <div class="col s6">
-                <a routerLink="/adviser/showProperties" class="waves-effect waves-light btn red col s12 button" (click)="openConfirmationDelete(p.id)">DELETE</a>
-            </div>
-          </div>
+          </div>  
+                <a routerLink="/adviser/editProperty/{{p.id}}" class=" waves-effect waves-light btn orange EditOrDelete">EDIT</a>
+                <a routerLink="/adviser/showProperties" class="waves-effect waves-light btn red EditOrDelete" (click)="openConfirmationDelete(p.id)">DELETE</a>
         </div>
       </div>
     </div>

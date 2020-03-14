@@ -1,0 +1,170 @@
+<div id="Create-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+        <h3 class="style-tittle center-align">NEW ADVISER</h3>
+        <form [formGroup]="fgV" (ngSubmit)="CreateNewAdviEvent()" class="login-form">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">face</i>
+                    <input class="validate" formControlName="name" id="name" type="text">
+                    <label for="name" data-error="wrong" data-success="right">First Name</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.name.errors && (fg.name.dirty || fg.name.touched)">
+                        <strong *ngIf="fg.name.errors.required"class= "alert-color">
+                            First Name is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.name.errors.minlength"class= "alert-color">
+                            First Name must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.name.errors.maxlength"class= "alert-color">
+                            First Name must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" formControlName="last" id="last" type="text">
+                    <label for="last" data-error="wrong" data-success="right">Last Name</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.last.errors && (fg.last.dirty || fg.last.touched)">
+                        <strong *ngIf="fg.last.errors.required"class= "alert-color">
+                            Last Name is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.last.errors.minlength"class= "alert-color">
+                            Last Name must be at least 4 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.last.errors.maxlength"class= "alert-color">
+                            Last Name must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    <input class="validate" formControlName="username" id="username" type="text">
+                    <label for="username" data-error="wrong" data-success="right">Username</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">example: pepito99</span>
+                    <div class="warning-validation"
+                        *ngIf="fg.username.errors && (fg.username.dirty || fg.username.touched)">
+                        <strong *ngIf="fg.username.errors.required"class= "alert-color">
+                            Username Day is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.username.errors.minlength"class= "alert-color">
+                            Username Day must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.username.errors.maxlength"class= "alert-color">
+                            Username Day must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">mail_outline</i>
+                    <input class="validate" formControlName="email" id="email" type="email">
+                    <label for="email" data-error="wrong" data-success="right">E-mail</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.email.errors && (fg.email.dirty || fg.email.touched)">
+                        <strong *ngIf="fg.email.errors.required"class= "alert-color">
+                            E-mail is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.email.errors.minlength"class= "alert-color">
+                            E-mail must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.email.errors.maxlength"class= "alert-color">
+                            E-mail must be up to 40 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.email.errors.email"class= "alert-color">
+                            E-mail must be an email!
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="password" formControlName="password" type="password">
+                    <label for="password">Password</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.password.errors && (fg.password.dirty || fg.password.touched)">
+                        <strong *ngIf="fg.password.errors.required" class= "alert-color">
+                            Password is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.password.errors.minlength" class= "alert-color">
+                            Password must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.password.errors.maxlength"class= "alert-color">
+                            Password must be up to 15 characters long!
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    <input class="validate" formControlName="birth" id="birth" type="text">
+                    <label for="birth" data-error="wrong" data-success="right">Birth Day</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">day/month/year</span>
+                    <div class="warning-validation"
+                        *ngIf="fg.birth.errors && (fg.birth.dirty || fg.birth.touched)">
+                        <strong *ngIf="fg.birth.errors.required"class= "alert-color">
+                            Birth Day is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.birth.errors.minlength"class= "alert-color">
+                            Birth Day must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.birth.errors.maxlength"class= "alert-color">
+                            Birth Day must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">home</i>
+                    <input class="validate" formControlName="address" id="address" type="text">
+                    <label for="address" data-error="wrong" data-success="right">Address</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.address.errors && (fg.address.dirty || fg.address.touched)">
+                        <strong *ngIf="fg.address.errors.required"class= "alert-color">
+                            Address is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.address.errors.minlength"class= "alert-color">
+                            Address must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.address.errors.maxlength"class= "alert-color">
+                            Address must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">contact_phone</i>
+                    <input class="validate" formControlName="cell" id="cell" type="text">
+                    <label for="cell" data-error="wrong" data-success="right">CellPhone</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.cell.errors && (fg.cell.dirty || fg.cell.touched)">
+                        <strong *ngIf="fg.cell.errors.required"class= "alert-color">
+                            CellPhone is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.cell.errors.minlength"class= "alert-color">
+                            CellPhone must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.cell.errors.maxlength"class= "alert-color">
+                            CellPhone must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+
+            <!--div class="g-recaptcha" data-sitekey="6LeOiNUUAAAAAEr3pUGAltL5l8Jeyzb2IMg-dU-6"></div-->
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <button [disabled]="fg.name.errors ||fg.last.errors ||fg.email.errors || fg.username.errors||
+                    fg.password.errors ||fg.birth.errors ||fg.address.errors || fg.cell.errors"
+                        class="btn waves-effect waves-light col s12 button-color " type="submit">Create
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

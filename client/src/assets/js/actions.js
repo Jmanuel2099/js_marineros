@@ -11,6 +11,10 @@ function openImageModal(){
     openModal('modalImage');
 }
 
+function openModalMessageDejected(){
+    openModal('modalMessageDejected');
+}
+
 let openModal = (modalId) => {
     var elem = document.querySelector(`#${modalId}`);
     let instance = M.Modal.init(elem, {});
