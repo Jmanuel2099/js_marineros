@@ -10,11 +10,14 @@
       <ul class="right hide-on-med-and-down">
           <li *ngIf="!userLogged"><a class="style-text" routerLink="security/register">Register</a></li>  
           <li *ngIf="!userLogged"><a class="style-text" routerLink="homeProperty">Properties</a></li> 
-          <li *ngIf="!userLogged" ><i class="material-icons icon" routerLink="security/Login">account_circle</i></li>
+          <!--li *ngIf="!userLogged" ><i class="material-icons icon" routerLink="security/Login">account_circle</i></li-->
+          <li *ngIf="!userLogged"><a><img  id="Icon" class="center-align" routerLink="security/Login" src="https://cdn4.iconfinder.com/data/icons/gray-user-management/512/rounded-512.png"></a> </li>
 
         <!--a>options Admin<a-->
         <li *ngIf="userLogged && rol==1"><a class="style-text" routerLink="/admin/createAdviser">New adviser</a></li>
-        <li *ngIf="userLogged && rol==1 "><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutAdim.png"></a> </li>
+        <li *ngIf="userLogged && rol==1"><a class="style-text" routerLink="/admin/listRequest">List request</a></li>
+        <li *ngIf="userLogged && rol==1"><a class="style-text" routerLink="/admin/CreateDomain">New domain</a></li>
+        <li *ngIf="userLogged && rol==1 "><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/admin.png"></a> </li>
 
         <!--a>options Adviser<a-->
         <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/createProperty">Create properties</a></li>

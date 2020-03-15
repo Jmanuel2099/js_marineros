@@ -1,0 +1,90 @@
+<div id="Create-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+        <h3 class="style-tittle center-align">NEW DOMAIN</h3>
+        <form [formGroup]="fgV" (ngSubmit)="CreateNewDomain()" class="login-form">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">fiber_manual_record</i>
+                    <input class="validate" formControlName="name" id="name" type="text">
+                    <label for="name" data-error="wrong" data-success="right">Name Domain</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.name.errors && (fg.name.dirty || fg.name.touched)">
+                        <strong *ngIf="fg.name.errors.required"class= "alert-color">
+                            Name Day is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.name.errors.minlength"class= "alert-color">
+                            Name Day must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.name.errors.maxlength"class= "alert-color">
+                            Name Day must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">description</i>
+                    <textarea formControlName="message" id="message" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Description</label>
+                    <div class="warning-validation"
+                    *ngIf="fg.message.errors && (fg.message.dirty || fg.message.touched)">
+                      <strong *ngIf="fg.message.errors.required" class="alert-color">
+                        message is required!<br />
+                      </strong>
+                      <strong *ngIf="fg.message.errors.minlength"class="alert-color">
+                        message must be at least 5 characters long!<br />
+                      </strong>
+                      <strong *ngIf="fg.message.errors.maxlength"class="alert-color">
+                        message must be up to 200 characters long!<br />
+                      </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">location_city</i>
+                    <input class="validate" formControlName="Depto" id="Depto" type="text">
+                    <label for="Depto" data-error="wrong" data-success="right">Departament</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.Depto.errors && (fg.Depto.dirty || fg.Depto.touched)">
+                        <strong *ngIf="fg.Depto.errors.required"class= "alert-color">
+                            Departament is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.Depto.errors.minlength"class= "alert-color">
+                            Departament must be at least 5 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.Depto.errors.maxlength"class= "alert-color">
+                            Departament must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" formControlName="city" id="city" type="text">
+                    <label for="city" data-error="wrong" data-success="right">City</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.city.errors && (fg.city.dirty || fg.city.touched)">
+                        <strong *ngIf="fg.city.errors.required"class= "alert-color">
+                            City is required!<br />
+                        </strong>
+                        <strong *ngIf="fg.city.errors.minlength"class= "alert-color">
+                            City must be at least 4 characters long!<br />
+                        </strong>
+                        <strong *ngIf="fg.city.errors.maxlength"class= "alert-color">
+                            City must be up to 40 characters long!<br />
+                        </strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <button [disabled]="fg.name.errors ||fg.Depto.errors ||fg.city.errors || fg.message.errors"
+                        class="btn waves-effect waves-light col s12 button-color " type="submit">Create
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

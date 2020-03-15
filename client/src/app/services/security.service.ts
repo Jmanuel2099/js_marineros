@@ -14,17 +14,12 @@ const baseUrl: String = "http://localhost:3000/api/Users";
   providedIn: 'root'
 })
 export class SecurityService {
-  //userInfo= new BehaviorSubject<UserModel>(new UserModel())
   loginInfo = new BehaviorSubject<LoginModel>(new LoginModel())
   usserLoged: boolean = false;
 
   constructor(private http: HttpClient) {
     this.verifyUserInSession();
   }
-
-  // getLoginInfo(){
-  //   return this.loginInfo.asObservable();
-  // }
 
   getUserInfo() {
     let info = this.loginInfo.asObservable();
@@ -85,5 +80,28 @@ export class SecurityService {
       { headers: new HttpHeaders({ "content-type": "application/json" }) }
     );
   }
+
+  getUsers():Observable<UserModel[]>{
+    return this.http.get<UserModel[]>(`${baseUrl}`)
+  }
+
+  putUser(r:Number,realm:String, f:String,l:String,u:String,e:String,b:String,a:String,c:String,i:Boolean,pas:String,id:String): Observable<UserModel> {
+    let body_Put={
+      rol: r,
+      realm: realm,
+      firstName: f,
+      lastName: l,
+      username: u,
+      email: e,
+      birthDate: b,
+      addres: a,
+      cellphone: c,
+      isLogged: i,
+      password: pas,
+      id: id
+    }
+    return this.http.put<UserModel>(`${baseUrl}`,
+    body_Put)
+  };
 
 }

@@ -50,5 +50,9 @@
   "recuest": {
     "dataSource": "db",
     "public": true
+  },
+  "domain": {
+    "dataSource": "db",
+    "public": true
   }
 }

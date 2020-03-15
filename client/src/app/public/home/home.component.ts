@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 
+declare var openPlatformModalMessage: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,17 +23,20 @@ export class HomeComponent implements OnInit {
       last: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(30)]],
       email:['',[Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email]],
       cell:['',[Validators.required, Validators.minLength(7),Validators.maxLength(10)]],
-      request:['',[Validators.required,Validators.minLength(4),Validators.maxLength(5)]],
+      request:['',[Validators.required,Validators.minLength(1),Validators.maxLength(5)]],
       message: ['',[Validators.required,Validators.minLength(3),Validators.maxLength(200)]]
     });
   }
   sendMessage(){
-    let e= this.fg.email.value;
+    let e= "jmanuel2099@gmail.com";
+    let subject= "Messaje Home"
     let m= this.getMessage();
     if(this.fgV.invalid){
       alert("ERROR")
     }else{
-      alert("terminar el envio del mensaje");;
+      this.userService.sendEmail(m, subject,e).subscribe(m =>{
+        openPlatformModalMessage("Message send")
+      });
       //this.userService.sendEmail(m,e);
     }
   }

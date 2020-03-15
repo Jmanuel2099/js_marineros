@@ -1,0 +1,53 @@
+<div class="container">
+    <table Class= "responsive_table text-style">
+        <thead>
+            <tr>
+                <th>
+                    Code
+                </th>
+                <th>
+                    Departament
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    address
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    estado
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor = " let c of listRequest " >
+                <td>
+                    {{c.id}}
+                </td>
+                <td >
+                    {{c.property.departament}}
+                </td>
+                <td>
+                    {{c.property.city}}
+                </td>
+                <td>
+                    {{c.property.address}}
+                </td>
+                <td>
+                    {{c.property.VorA}}
+                </td>
+                <td>
+                    {{c.estado}}
+                </td>
+                <td>
+                    <a class="waves-effect waves-light btn blue " (click)="openDetails(c.id)">Details
+                        
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
