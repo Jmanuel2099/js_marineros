@@ -13,6 +13,8 @@ export class HomePropertyComponent implements OnInit {
   propertyList: PropertyModel[]= [];
   ListSale:PropertyModel[]=[];  
   ListRent:PropertyModel[]=[];
+  p: number = 1;
+  d: number = 1;
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {

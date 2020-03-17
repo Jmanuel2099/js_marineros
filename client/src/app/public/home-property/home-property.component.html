@@ -1,7 +1,7 @@
 <div class="container">
     <h3 class="tittle-style">On sale</h3>
     <div class="row s12">
-      <div *ngFor="let p of ListSale" class="col s4 m4">
+      <div *ngFor="let p of ListSale | paginate: { id: 'pagination1', itemsPerPage: 3, currentPage: p }" class="col s4 m4">
         <div *ngIf="p.VorA==0" class="card">
           <div class="card-image">
             <img src="{{p.image}}">
@@ -16,17 +16,19 @@
         </div>
       </div>
     </div>
+    <pagination-controls id="pagination1" (pageChange)="p = $event"></pagination-controls>
+
     <div class="row s12">
       <h3 class="tittle-style">For rent</h3>
       <div class="row s12">
-        <div *ngFor="let p of ListRent" class="col s4 m4">
+        <div *ngFor="let p of ListRent | paginate: { id: 'pagination2', itemsPerPage: 3, currentPage: d }" class="col s4 m4">
           <div class="card">
             <div class="card-image">
               <img src="{{p.image}}">
               <span class="card-title">{{p.value}}</span>
             </div>
             <div class="card-content">
-              <h5 class="text-style">{{p.departament}}-{{p.city}}</h5>
+              <h5 class="text-style">{{p.domain.departament}}-{{p.domain.city}}</h5>
               <p class="text-style">{{p.address}}</p>
               <p class="text-style">{{p.contact}}</p>
               <a href="{{p.video}}">{{p.video}}</a>
@@ -35,4 +37,5 @@
         </div>
       </div>
     </div>
+    <pagination-controls id="pagination2" (pageChange)="d = $event"></pagination-controls>
   </div>

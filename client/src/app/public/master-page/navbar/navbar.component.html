@@ -2,7 +2,7 @@
     
     <div class="nav-wrapper " style="background-color:#EFE9E9">
       <!--a routerLink="/home" class="brand-logo">Hotel</a-->
-      <img *ngIf="!userLogged && rol!=3 && rol!=2 && rol !=1" class="brand-logo" routerLink="/home" src="https://solucionesinmobiliarias.co/wp-content/uploads/2014/03/logo-soluciones-trans.png">
+      <img *ngIf="!userLogged && rol!=3 && rol!=2 && rol!=1" class="brand-logo" routerLink="/home" src="https://solucionesinmobiliarias.co/wp-content/uploads/2014/03/logo-soluciones-trans.png">
       <img *ngIf="userLogged && rol==1" class="brand-logo" routerLink="/admin/homeAdmin" src="https://solucionesinmobiliarias.co/wp-content/uploads/2014/03/logo-soluciones-trans.png">
       <img *ngIf="userLogged && rol==2" class="brand-logo" routerLink="/adviser/homeAdviser" src="https://solucionesinmobiliarias.co/wp-content/uploads/2014/03/logo-soluciones-trans.png">
       <img *ngIf="userLogged && rol==3" class="brand-logo" routerLink="/user/userHome" src="https://solucionesinmobiliarias.co/wp-content/uploads/2014/03/logo-soluciones-trans.png">
@@ -10,7 +10,6 @@
       <ul class="right hide-on-med-and-down">
           <li *ngIf="!userLogged"><a class="style-text" routerLink="security/register">Register</a></li>  
           <li *ngIf="!userLogged"><a class="style-text" routerLink="homeProperty">Properties</a></li> 
-          <!--li *ngIf="!userLogged" ><i class="material-icons icon" routerLink="security/Login">account_circle</i></li-->
           <li *ngIf="!userLogged"><a><img  id="Icon" class="center-align" routerLink="security/Login" src="https://cdn4.iconfinder.com/data/icons/gray-user-management/512/rounded-512.png"></a> </li>
 
         <!--a>options Admin<a-->
@@ -37,7 +36,23 @@
     <li *ngIf="!userLogged"><a class="style-text" routerLink="security/register">Register</a></li>
     <li *ngIf="!userLogged"><a class="style-text" routerLink="homeProperty">Properties</a></li>
     <li *ngIf="!userLogged"><a class="style-text" routerLink="security/Login">Login</a></li>
-    <li *ngIf="userLogged"><a class="style-text"  routerLink="security/Logout">Logout</a></li>
+
+    <!--a>options Admin<a-->
+      <li *ngIf="userLogged && rol==1"><a class="style-text" routerLink="/admin/createAdviser">New adviser</a></li>
+      <li *ngIf="userLogged && rol==1"><a class="style-text" routerLink="/admin/listRequest">List request</a></li>
+      <li *ngIf="userLogged && rol==1"><a class="style-text" routerLink="/admin/CreateDomain">New domain</a></li>
+      <li *ngIf="userLogged && rol==1 "><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/admin.png"></a> </li>
+
+      <!--a>options Adviser<a-->
+      <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/createProperty">Create properties</a></li>
+      <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/showProperties">My properties</a></li>
+      <li *ngIf="userLogged && rol==2"><a class="style-text" routerLink="/adviser/recuestAdviser">Request</a></li>
+      <li *ngIf="userLogged && rol==2"><a><img  id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutAsesor.gif"></a> </li>
+       
+      <!--a>options Client<a-->
+      <li *ngIf="userLogged && rol==3"><a class="style-text" routerLink="user/userProperty">Properties</a></li>
+      <li *ngIf="userLogged && rol==3"><a class="style-text" routerLink="/user/listRecuestUser"> My request</a></li>
+      <li *ngIf="userLogged && rol==3" ><a><img id="Icon" class="center-align" routerLink="security/Logout" src="./assets/images/logoutClient.gif"></a> </li>
 
     
   </ul>

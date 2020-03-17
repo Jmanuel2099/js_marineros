@@ -21,9 +21,7 @@ export class PropertyUserComponent implements OnInit {
   listFilter :PropertyModel[]= [];
   listRequestUser: RequestModel[]= [];
   listTemp: PropertyModel[]= [];
-
-  //recuest:Boolean=true;
-
+  p: number = 1;
   constructor(private propertyService:PropertyService, private fb: FormBuilder,
      private secService: SecurityService, private requestService: RequestService, private userService: UserService) { }
 

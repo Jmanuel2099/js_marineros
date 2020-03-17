@@ -15,6 +15,11 @@ declare var openPlatformModalMessage: any;
 })
 export class RegisterComponent implements OnInit {
 
+  touch:String;
+  resolved(captchaResponse: string) {
+    this.touch = captchaResponse;
+}
+
   fgValidation: FormGroup;
   constructor(private fb: FormBuilder, private secService: SecurityService,
     private router: Router, private userservice: UserService) { }

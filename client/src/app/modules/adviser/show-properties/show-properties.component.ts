@@ -14,6 +14,7 @@ declare var openPlatformModalMessage: any;
 })
 export class ShowPropertiesComponent implements OnInit {
 
+  p: number = 1;
   propertyList: PropertyModel[]= [];
   List:PropertyModel[]=[];
   idProperty:string;

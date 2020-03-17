@@ -22,7 +22,7 @@ export class ListRequestUserComponent implements OnInit {
   state:Number;
   image:String;
   idProperty:String;
-
+  p: number = 1;
   constructor(private secService: SecurityService, private requestService: RequestService,
               private propertyService: PropertyService) { }
 

@@ -1,7 +1,7 @@
 <div class="container">
     <h3 class="tittle-style">REQUESTS</h3>
   <div class="row s12">
-      <div *ngFor="let p of listRequestUser" class="col s4 m4">
+      <div *ngFor="let p of listRequestUser | paginate: { itemsPerPage: 3, currentPage: p }" class="col s4 m4">
         <div class="card">
           <div class="card-image">
             <img src="{{p.property.image}}" class="Cardimg" (click)="  openModalImage(p.image)">
@@ -21,6 +21,7 @@
         </div>
       </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 
   <div id="modalMessageDejected" class="modal">

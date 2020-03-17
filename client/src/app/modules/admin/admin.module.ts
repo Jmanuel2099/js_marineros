@@ -7,6 +7,7 @@ import { CreateAdviserComponent } from './create-adviser/create-adviser.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ListRequestComponent } from './list-request/list-request.component';
 import { CreateDomainComponent } from './create-domain/create-domain.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CreateDomainComponent } from './create-domain/create-domain.component';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class AdminModule { }

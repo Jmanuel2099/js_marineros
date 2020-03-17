@@ -22,7 +22,7 @@ export class RequestAdviserComponent implements OnInit {
   listTemp: PropertyModel[]=[];
   idRequest:String;
   fgV : FormGroup;
-
+  p: number = 1;
   constructor(private requestService: RequestService, private secService: SecurityService, 
               private propertyService: PropertyService, private fb: FormBuilder, private userService: UserService) { }
 

@@ -5,7 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { HomeUserComponent } from './home-user/home-user.component';
 import { PropertyUserComponent } from './property-user/property-user.component';
 import { ListRequestUserComponent } from './list-request-user/list-request-user.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -15,7 +15,8 @@ import { ListRequestUserComponent } from './list-request-user/list-request-user.
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class UserModule { }

@@ -13,6 +13,7 @@ declare var openPlatformModalMessage: any;
 })
 export class ListRequestComponent implements OnInit {
 
+  p: number = 1;
   fgV: FormGroup;
   listRequest: RequestModel[]=[];
   listDomains : DoaminModel[] = [];

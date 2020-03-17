@@ -11,7 +11,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { HomePropertyComponent } from './public/home-property/home-property.component';
 import { RecaptchaModule } from 'ng-recaptcha';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RecaptchaModule
+    RecaptchaModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
