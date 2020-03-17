@@ -1,4 +1,53 @@
 <div class="container">
+    <form [formGroup]="fgV" name="filter" (ngSubmit)="filterEvent()" >
+        <div class="row z-depth-1">
+          <div class="col s4">
+          <p class="tittle-style">What kind of request are you looking for?</p>
+          <p>
+            <label>
+              <input class="with-gap" formControlName="VorR" id="Sale" type="radio" value="0" checked/>
+              <span class="text-style">Sale</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input class="with-gap" formControlName="VorR" id="Rent" type="radio" value="1" />
+              <span class="text-style">Rent</span>
+            </label>
+          </p>
+        </div>
+        <div class="col s4">
+          <p class="tittle-style">What are you looking for?</p>
+          <p>
+            <label>
+              <input class="with-gap" formControlName="HorA" id="House" type="radio" value="0" checked/>
+              <span class="text-style">Hose</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input class="with-gap" formControlName="HorA" id="Apartament" type="radio" value="1" />
+              <span class="text-style">Apartament</span>
+            </label>
+          </p>
+
+        </div>
+        <div class="col s4">
+          <label>Domain</label>
+          <select class="browser-default text-style" *ngFor="let p of listDomains" formControlName="dom">
+            <option class="text-style" value="" disabled selected>Choose your option</option>
+            <option class="text-style" value={{p.id}}>
+                {{p.name}}
+            </option>
+          </select>
+        </div>
+
+        <button class="btn waves-effect waves-light button1" type="submit"
+        [disabled]="fg.VorR.errors || fg.HorA.errors || fg.dom.errors">Filter
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
     <table Class= "responsive_table text-style">
         <thead>
             <tr>
@@ -23,15 +72,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr  *ngFor = " let c of listRequest " >
+            <tr  *ngFor = " let c of listFilter " >
                 <td>
                     {{c.id}}
                 </td>
                 <td >
-                    {{c.property.departament}}
+                    {{c.property.domain.departament}}
                 </td>
                 <td>
-                    {{c.property.city}}
+                    {{c.property.domain.city}}
                 </td>
                 <td>
                     {{c.property.address}}

@@ -69,8 +69,9 @@ export class PropertyUserComponent implements OnInit {
     let client = this.secService.getInfo().user;
     let p ={
       state: property.state,
-      departament:property.departament,
-      city:property.city,
+      domain: property.domain,
+      //departament:property.domain.departament,
+      //city:property.domain.city,
       address:property.address,
       value:property.value,
       typeProperty:property.typeProperty,
@@ -85,7 +86,7 @@ export class PropertyUserComponent implements OnInit {
     this.requestService.requestProperty(p,client,Advi).subscribe(r => {
       this.sendmessageConfimation(client.firstName,client.lastName,client.email,client.cellphone,
                               Advi.firstName,Advi.lastName,Advi.email,
-                              property.id,property.departament,property.city,property.address,property.value)
+                              property.id,property.domain.departament,property.domain.city,property.address,property.value)
       openPlatformModalMessage("Message sent, the advisor is notified");
     });
   }
@@ -99,19 +100,5 @@ export class PropertyUserComponent implements OnInit {
     this.userService.sendEmail(m, subj, eadvi).subscribe(()=>{
     });
   }
-
-
-  // getPropertiRequested(){
-  //   let user = this.secService.getInfo().userId;
-  //   let prequested = this.requestService.getRequest().subscribe(datas => {
-  //     //console.log(datas)
-  //     for (let p of datas) {
-  //       if(p.user.toString() == user){// aqui me obtengo las propiedades que tiene solicitadas el usuaria que esta logeado
-  //         this.listRequestUser.push(p);
-  //         //console.log(this.listRequestUser)
-  //       }
-  //     }
-  //   });
-  // }
   
 }

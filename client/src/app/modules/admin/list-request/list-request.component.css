@@ -1,4 +1,27 @@
+
+.tittle-style{
+    font-family: 'Anton', sans-serif;
+    color: #6B6B6B; 
+}
 .text-style{
     font-family: 'M PLUS 1p', sans-serif;
     color: #6B6B6B; 
+}
+
+#card{
+    margin-top: 4%;
+    margin-left: 1%;
+}
+img{
+    width: 100px; height: 200px;
+}
+.button1{
+    margin-left: 3%;
+    margin-bottom: 1%;
+    background: #06679B;
+}
+.button2{
+    margin-left: 5%;
+    margin-bottom: 3%;
+    background: #06679B;
 }

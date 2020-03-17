@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { PropertyModel } from '../modeles/propertyModel';
 import { RequestModel } from '../modeles/requestModel';
 import { UserModel } from '../modeles/userModel';
+import { DoaminModel } from '../modeles/domainModel';
 
 //http://localhost:3000/api/properties
 const base_url: string ='http://localhost:3000/api/properties'
@@ -25,11 +26,10 @@ export class PropertyService {
     return this.http.get<PropertyModel>(`${base_url}/${id}`);
   }
   
-  createProperties(state:Boolean,dept:String,city:String,addr:String,value:Number,type:Number,VorA:Number,adv:UserModel,cont:string,img:String,vid:String):Observable<PropertyModel>{
+  createProperties(state:Boolean,d:DoaminModel,addr:String,value:Number,type:Number,VorA:Number,adv:UserModel,cont:string,img:String,vid:String):Observable<PropertyModel>{
     let body={
       state : state,
-      departament: dept,
-      city: city,
+      domain:d,
       address: addr, 
       value: value,
       typeProperty: type,
@@ -46,11 +46,10 @@ export class PropertyService {
     );
   }
 
-  editProperty(dep:String,cit:String,addr:String,val:Number,type:Number,VorA:Number,advi:UserModel,cell:String,img:String,Vid:String,id:String):Observable<PropertyModel>{
+  editProperty(d:DoaminModel,addr:String,val:Number,type:Number,VorA:Number,advi:UserModel,cell:String,img:String,Vid:String,id:String):Observable<PropertyModel>{
     let body_Put= {
       state: false,
-      departament:dep ,
-      city: cit,
+      domain:d,
       address: addr,
       value: val,
       typeProperty: type,

@@ -1,9 +1,11 @@
 import { UserModel } from './userModel';
+import { DoaminModel } from './domainModel';
 
 export class PropertyModel{
     state:boolean;
-    departament:string;
-    city:string;
+    //departament:string;
+    //city:string;
+    domain:DoaminModel;
     address:string;
     value:number;
     typeProperty:number;//0 para casa 1 para apto

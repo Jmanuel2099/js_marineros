@@ -4,6 +4,7 @@ import { SecurityService } from 'src/app/services/security.service';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +13,10 @@ import * as CryptoJS from 'crypto-js';
 export class LoginComponent implements OnInit {
 
   fgValidation: FormGroup;
+  touch:String;
+  resolved(captchaResponse: string) {
+    this.touch = captchaResponse;
+}
 
   constructor(private fb: FormBuilder, private secService: SecurityService,
               private router:Router) { }
@@ -32,8 +37,9 @@ export class LoginComponent implements OnInit {
   }
 
   loginEvent(){ 
-    if(this.fgValidation.invalid){
-      alert("Error data")
+
+    if(this.fgValidation.invalid && this.touch == ''){
+      alert("Error data or should check that you are not a robot")
     }else{
     let u= this.fg.username.value;
     let p= this.fg.password.value;

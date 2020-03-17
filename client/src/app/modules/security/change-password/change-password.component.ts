@@ -1,54 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/services/security.service';
-import { UserModel } from 'src/app/modeles/userModel';
 import * as CryptoJS from 'crypto-js';
-import { UserService } from 'src/app/services/user.service';
 
 declare var openPlatformModalMessage: any;
 
 @Component({
-  selector: 'app-recover-password',
-  templateUrl: './recover-password.component.html',
-  styleUrls: ['./recover-password.component.css']
+  selector: 'app-change-password',
+  templateUrl: './change-password.component.html',
+  styleUrls: ['./change-password.component.css']
 })
-export class RecoverPasswordComponent implements OnInit {
-  fgValidation: FormGroup;
-  listUsers:UserModel[]=[];
+export class ChangePasswordComponent implements OnInit {
 
-  touch:String;
-  resolved(captchaResponse: string) {
-    this.touch = captchaResponse;
-}
-
-  constructor(private fb: FormBuilder, private secService: SecurityService, private userService: UserService) { }
+  fgValidator: FormGroup;
+  constructor(private fb: FormBuilder, private secService:SecurityService) { }
 
   ngOnInit() {
     this.fgValidationBuilder();
   }
 
   fgValidationBuilder(){
-    this.fgValidation= this.fb.group({
-      email:['',[Validators.required, Validators.minLength(5), Validators.maxLength(30), Validators.email]]
+    this.fgValidator= this.fb.group({
+      new1:['',[Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      new2:['',[Validators.required, Validators.minLength(5), Validators.maxLength(50)]]
     });
   }
+
   get fg(){
-    return this.fgValidation.controls;
+    return this.fgValidator.controls;
   }
 
   changePassword(){
-    let email = this.fg.email.value;
-    this.secService.getUsers().subscribe(u =>{
-      let user= u.find(x => x.email == email)
-      //console.log(user)
-      if(user == undefined){
-        openPlatformModalMessage("Email invalid")
-      }else{
-        let pass = Math.random().toString();
-        this.changePasswordInBD(user.id, pass);
-      }
-    });
-
+    let userForChange= this.secService.getInfo().user.id;
+    console.log(userForChange)
+    let pass1 = this.fg.new1.value;
+    let pass2 = this.fg.new2.value;
+    if( pass1 == pass2){
+      this.changePasswordInBD(userForChange,pass2);
+    }else{
+      openPlatformModalMessage("New passwords don't match")
+    }
   }
 
   changePasswordInBD(Id:String, p:String){
@@ -66,14 +57,12 @@ export class RecoverPasswordComponent implements OnInit {
       let addr = user.address;
       let cell = user.cellphone;
       let islogged = user.isLogged;
-      //let pass = Math.random().toString();
+      //let pass = p;
       let pEncrypted = this.encryptPassword(p.toString()).toString()
       let id = user.id;
 
       this.secService.putUser(rol,realm,first,last,usern,email,birt,addr,cell,islogged,pEncrypted,id).subscribe(y =>{
-        this.userService.sendEmail(`Your new password is ${p}`,"Recover Password", email).subscribe(e =>{
-          openPlatformModalMessage("password change")
-        });
+        openPlatformModalMessage("Password change")
       });
     });
   }

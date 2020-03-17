@@ -45,11 +45,11 @@
                 </div>
             </div>
 
-            <!--div class="g-recaptcha" data-sitekey="6LeOiNUUAAAAAEr3pUGAltL5l8Jeyzb2IMg-dU-6"></div-->
+            <re-captcha  (resolved)="resolved($event)" siteKey="6Lf7xeEUAAAAALL5inHoqPhAP_BNbB8L4zTP3eN0"></re-captcha>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <button [disabled]="fg.username.errors || fg.password.errors"
+                    <button [disabled]="fg.username.errors || fg.password.errors "
                         class="btn waves-effect waves-light col s12 button-color " type="submit">Login
                     </button>
                 </div>

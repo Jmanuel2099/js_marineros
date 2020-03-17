@@ -10,7 +10,7 @@ import { HeroComponent } from './public/master-page/hero/hero.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { HomePropertyComponent } from './public/home-property/home-property.component';
-
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { HomePropertyComponent } from './public/home-property/home-property.comp
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

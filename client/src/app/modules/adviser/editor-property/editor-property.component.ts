@@ -3,6 +3,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PropertyService } from 'src/app/services/property.service';
 import { SecurityService } from 'src/app/services/security.service';
+import { DomainService } from 'src/app/services/domain.service';
+import { DoaminModel } from 'src/app/modeles/domainModel';
 
 declare var openPlatformModalMessage: any;
 
@@ -14,18 +16,19 @@ declare var openPlatformModalMessage: any;
 export class EditorPropertyComponent implements OnInit {
   code:String;
   fgV: FormGroup;
+  listDomains:DoaminModel[]= [];
   constructor(private fb: FormBuilder, private routerActivate: ActivatedRoute, private propertyService: PropertyService,
-              private secService: SecurityService, private router:Router) { }
+              private secService: SecurityService, private router:Router, private domainService:DomainService) { }
 
   ngOnInit() {
     this.fgValidationBuilder();
     this.getPrpertyToEdit();
+    this.getdomain();
   }
 
   fgValidationBuilder() {
     this.fgV = this.fb.group({
-      depto:['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-      city:['',[Validators.required,Validators.minLength(3),Validators.maxLength(20)]],
+      dom: ['',[Validators.required]],
       address:['',[Validators.required, Validators.minLength(4),Validators.maxLength(30)]],
       val:['',[Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
       VorR:['',[Validators.required]],
@@ -42,9 +45,7 @@ export class EditorPropertyComponent implements OnInit {
     this.code= this.routerActivate.snapshot.paramMap.get("id");
     if( this.code != null && this.code != undefined){
       this.propertyService.getPropertyById(this.code).subscribe(p=>{
-        // console.log(p)
-        this.fg.depto.setValue(p.departament),
-        this.fg.city.setValue(p.city),
+        this.fg.dom.setValue(p.domain.name)
         this.fg.address.setValue(p.address),
         this.fg.val.setValue(p.value),
         this.fg.VorR.setValue(p.VorA),
@@ -57,9 +58,19 @@ export class EditorPropertyComponent implements OnInit {
     }
   }
 
+  getdomain(){
+    this.domainService.getDomain().subscribe(d => {
+      this.listDomains = d;
+      //console.log(this.listDomains)
+    })
+  }
   editProperty(){
-    let departament = this.fg.depto.value;
-    let city = this.fg.city.value;
+    this.domainService.getDomainById(this.fg.dom.value).subscribe(d => {
+      this.propertyService.editProperty(d,address,value,typeProperty,VorA,adviser,contac,image,video,id).subscribe(p => {
+        openPlatformModalMessage("EDIT PROPERTY 🥳🥳");
+        this.router.navigate(['/adviser/showProperties'])
+      });
+    })
     let address= this.fg.address.value;
     let value= this.fg.val.value;
     let typeProperty= this.fg.HorA.value;
@@ -69,9 +80,5 @@ export class EditorPropertyComponent implements OnInit {
     let image= this.fg.image.value;
     let video= this.fg.video.value;
     let id= this.code;
-    this.propertyService.editProperty(departament,city,address,value,typeProperty,VorA,adviser,contac,image,video,id).subscribe(p => {
-      openPlatformModalMessage("EDIT PROPERTY 🥳🥳");
-      this.router.navigate(['/adviser/showProperties'])
-    });
   }
 }

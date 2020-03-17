@@ -10,13 +10,8 @@
     "state": {
       "type": "boolean",
       "required": true
-    },
-    "departament": {
-      "type": "string",
-      "required": true
-    },
-    "city": {
-      "type": "string",
+    },"domain":{
+      "type":"object",
       "required": true
     },
     "address": {

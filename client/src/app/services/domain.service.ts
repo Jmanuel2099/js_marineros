@@ -27,4 +27,12 @@ export class DomainService {
       { headers: new HttpHeaders({ "content-type": "application/json" }) }
       );
   }
+
+  getDomain():Observable<DoaminModel[]>{
+    let domains =this.http.get<DoaminModel[]>(base_url);
+    return domains;
+  }
+  getDomainById(id:String):Observable<DoaminModel>{
+    return this.http.get<DoaminModel>(`${base_url}/${id}`);
+  }
 }

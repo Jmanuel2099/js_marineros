@@ -4,41 +4,14 @@
         <form (ngSubmit)="CreateEvent()" [formGroup]="fgV" class="login-form">
             <div class="row">
             </div>
-            <div class="row">
-                <div  class="input-field col s6">
-                    <i class="material-icons prefix">location_city</i>
-                    <input class="validate" formControlName="depto" id="depto" type="text">
-                    <label for="depto" data-error="wrong" data-success="right">Departament</label>
-                    <div class="warning-validation"
-                        *ngIf="fg.depto.errors && (fg.depto.dirty || fg.depto.touched)">
-                        <strong *ngIf="fg.depto.errors.required"class= "alert-color">
-                            Departament is required!<br />
-                        </strong>
-                        <strong *ngIf="fg.depto.errors.minlength"class= "alert-color">
-                            Departament must be at least 5 characters long!<br />
-                        </strong>
-                        <strong *ngIf="fg.depto.errors.maxlength"class= "alert-color">
-                            Departament must be up to 40 characters long!<br />
-                        </strong>
-                    </div>
-                </div>
-                <div class="input-field col s6">
-                    <input class="validate" formControlName="city" id="city" type="text">
-                    <label for="city" data-error="wrong" data-success="right">City</label>
-                    <div class="warning-validation"
-                        *ngIf="fg.city.errors && (fg.city.dirty || fg.city.touched)">
-                        <strong *ngIf="fg.city.errors.required"class= "alert-color">
-                            City is required!<br />
-                        </strong>
-                        <strong *ngIf="fg.city.errors.minlength"class= "alert-color">
-                            City must be at least 4 characters long!<br />
-                        </strong>
-                        <strong *ngIf="fg.city.errors.maxlength"class= "alert-color">
-                            City must be up to 40 characters long!<br />
-                        </strong>
-                    </div>
-                </div>
-            </div>
+            
+            <label>Domain</label>
+            <select class="browser-default text-style" *ngFor="let p of listDomains" formControlName="dom">
+              <option class="text-style" value="" disabled selected>Choose your option</option>
+              <option class="text-style" value={{p.id}}>
+                  {{p.name}}
+              </option>
+            </select>
             <div class="row">
                 <div class="input-field col s9">
                     <i class="material-icons prefix">location_on</i>
@@ -131,8 +104,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <button [disabled]="fg.depto.errors || fg.city.errors || fg.address.errors || fg.val.errors || fg.VorR.errors
-                    || fg.HorA.errors || fg.image.errors || fg.video.errors"
+                    <button 
                         class="btn waves-effect waves-light col s12 button-color"  type="submit">CREATE
                     </button>
                 </div>
