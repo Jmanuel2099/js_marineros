@@ -4,24 +4,29 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { CreateAdviserComponent } from './create-adviser/create-adviser.component';
 import { ListRequestComponent } from './list-request/list-request.component';
 import { CreateDomainComponent } from './create-domain/create-domain.component';
+import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
 
 
 const routes: Routes = [
   {
     path: 'homeAdmin',
-    component:HomeAdminComponent
+    component:HomeAdminComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path:'createAdviser',
-    component:CreateAdviserComponent
+    component:CreateAdviserComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path: 'listRequest',
-    component: ListRequestComponent
+    component: ListRequestComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path: 'CreateDomain',
-    component: CreateDomainComponent
+    component: CreateDomainComponent,
+    canActivate: [AuthenticationRequiredGuard]
   }
 ];
 

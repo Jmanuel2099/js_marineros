@@ -5,28 +5,34 @@ import { CreatePropertyComponent } from './create-property/create-property.compo
 import { ShowPropertiesComponent } from './show-properties/show-properties.component';
 import { EditorPropertyComponent } from './editor-property/editor-property.component';
 import { RequestAdviserComponent } from './request-adviser/request-adviser.component';
+import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
 
 
 const routes: Routes = [
 {
   path:'homeAdviser',
-  component: HomeAdviserComponent
+  component: HomeAdviserComponent,
+  canActivate: [AuthenticationRequiredGuard]
 },
 {
   path: 'createProperty',
-  component: CreatePropertyComponent
+  component: CreatePropertyComponent,
+  canActivate: [AuthenticationRequiredGuard]
 },
 {
   path:'showProperties',
-  component: ShowPropertiesComponent
+  component: ShowPropertiesComponent,
+  canActivate: [AuthenticationRequiredGuard]
 },
 {
   path:'editProperty/:id',
-  component: EditorPropertyComponent
+  component: EditorPropertyComponent,
+  canActivate: [AuthenticationRequiredGuard]
 },
 {
   path: 'recuestAdviser',
-  component: RequestAdviserComponent
+  component: RequestAdviserComponent,
+  canActivate: [AuthenticationRequiredGuard]
 }
 
 ];

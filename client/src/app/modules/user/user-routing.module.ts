@@ -15,11 +15,13 @@ const routes: Routes = [
   },
   {
     path:'userProperty',
-    component: PropertyUserComponent
+    component: PropertyUserComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path:'listRecuestUser',
-    component: ListRequestUserComponent
+    component: ListRequestUserComponent,
+    canActivate: [AuthenticationRequiredGuard]
   }
 ];
 

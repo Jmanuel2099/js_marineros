@@ -77,4 +77,11 @@ export class ListRequestUserComponent implements OnInit {
     this.image= i
     openImageModal()
   }
+
+  openModalMessage(id:String){
+    this.requestService.getRequestById(id).subscribe(r => {
+      openPlatformModalMessage(r.message);
+    });
+  }
 }
+

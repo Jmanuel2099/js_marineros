@@ -16,6 +16,7 @@
           <p *ngIf="p.estado == 1" class="colorReview">IN REVIEW</p>
           <p *ngIf="p.estado == 2" class="colorAccepted">ACCEPTED</p>
           <p *ngIf="p.estado == 3" class="coloRejected">REJECTED</p>
+          <a *ngIf="p.estado == 3" (click)="openModalMessage(p.id)">Open Message</a>
         </div>
         <a *ngIf="p.estado == 0" class="waves-effect waves-light btn button" (click)="openModalConfimartion(p.property.id)">DELETE</a>
       </div>
